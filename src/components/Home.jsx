@@ -12,48 +12,31 @@ const Home = () => {
     setTimeout(() => {
       navigate("/quiz");
       setLoading(false);
-    }, 2000);
+    }, 1000);
   };
 
   return (
-    <section className="lg:w-9/12 md:w-[90%] px-4 mx-auto mt-12 flex flex-col md:flex-row-reverse justify-between items-center ">
+    <section className="w-[800px] px-4 mx-auto mt-12 flex bg-slate-300 rounded-md">
       {loading && <Loading />}
 
-      <div className="md:w-1/2 w-full">
-        <img src="/images/banner.png" alt="banner" className="w-full mx-auto" />
-      </div>
-      <div className="md:w-1/2 w-full space-y-8 mb-5">
-        <h2 className=" lg:text-4xl text-3xl font-medium text-[#333] md:w-4/6 lg:leading-normal leading-normal mb-3">
-          Learn new concepts for each question
+      <div className="w-full space-y-5">
+        <h2 className="lg:text-2xl text-xl text-slate-700 flex justify-center">
+          Bem-vindo ao simulado CLF-C02!
         </h2>
-        <p className="py-2 mb-6 text-gray-500 pl-2 border-l-4 border-indigo-700 text-base">
-          We help you prepare for exams and quizzes
+        <p className="text-slate-800">
+          Este é um projeto independente afim de testar seus conhecimento para o exame de AWS Cloud Practitioner.
         </p>
-        <div className="text-lg font-medium flex flex-col sm:flex-row gap-5">
+        <div className="flex justify-center">
           <button
             onClick={handleStateQuiz}
-            className="bg-primary px-6 py-2 text-white rounded"
+            className="bg-sky-800 px-6 py-2 text-white rounded w-40"
           >
             Start Quiz
           </button>
-          <button className="inline-flex items-center px-6 py-2 rounded border text-primary ml-3 hover:bg-primary hover:text-white transition-all duration-300 ease-in">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m8.25 4.5 7.5 7.5-7.5 7.5"
-              />
-            </svg>
-            know more
-          </button>
         </div>
+          <p className="text-justify text-slate-800">
+            Nota: Este projeto de simulado é uma iniciativa independente e não tem afiliação, endosso ou qualquer relação oficial com a Amazon Web Services (AWS). Foi desenvolvido com o objetivo de fornecer recursos educacionais para indivíduos que estão se preparando para o exame AWS Cloud Practitioner (CLF-C02) e não deve ser considerado como substituto dos materiais oficiais de estudo fornecidos pela AWS.
+          </p>
       </div>
     </section>
   );

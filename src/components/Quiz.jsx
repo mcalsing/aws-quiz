@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import QuizHeader from "./QuizHeader";
 
+const TIMEFORTEST = 30*60;
+
 const Loading = () => (
   <div className="h-[220px] w-[220px] mx-auto mt-8 flex flex-col justify-center items-center border-2 rounded-tr-[50%] rounded-bl-[50%]">
     <p className="text-xl text-gray-500">Loading...</p>
@@ -25,7 +27,7 @@ const Quiz = () => {
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [timer, setTimer] = useState(60);
+  const [timer, setTimer] = useState(TIMEFORTEST);
   const [timerIntervalId, setTimerIntervalId] = useState(null);
   const [status, setStatus] = useState("");
 
@@ -96,7 +98,7 @@ const Quiz = () => {
     setScore(0);
     setShowResult(false);
     setLoading(false);
-    setTimer(60);
+    setTimer(TIMEFORTEST);
     navigate("/quiz");
   };
 
@@ -110,7 +112,7 @@ const Quiz = () => {
             {questions.map((question, index) => (
               <div
                 key={question.id}
-                className="m-3 py-3 px-4 shadow-sm border border-gray-200 rounded "
+                className="m-3 py-3 px-4 shadow-sm border border-gray-400 rounded "
               >
                 <p className="flex items-center rounded text-xs p-2 cursor-pointer">
                   <span className="h-8 w-8 bg-[#FCC822] rounded-full flex justify-center items-center text-green-800 mr-3">
@@ -121,7 +123,7 @@ const Quiz = () => {
                 <div className="grid grid-cols-2 gap-4 mt-5">
                   {question.options.map((option, index) => (
                     <div
-                      className={`border border-gray-200 rounded text-xs p-2 cursor-pointer ${
+                      className={`border border-gray-400 rounded text-xs p-2 cursor-pointer ${
                         answers[question.id] === option ? "bg-gray-300" : ""
                       }`}
                       key={option}
@@ -144,7 +146,7 @@ const Quiz = () => {
         </div>
 
         {/* answer  section*/}
-        <div className="md:w-[30%] w-full p-4">
+         <div className="md:w-[30%] w-full p-4 bg-slate-200">
           {showResult && (
             <div>
               <h3 className="text-2xl font-medium">Your Score: </h3>
@@ -157,13 +159,13 @@ const Quiz = () => {
                   {status}
                 </h3>
                 <h1 className="text-3xl font-bold my-2">
-                  {score * 10}
-                  <span className="text-slate-800">/60</span>
+                  {score}
+                  <span className="text-slate-800">/30</span>
                 </h1>
                 <p className="text-sm flex justify-center items-center gap-2">
                   Total Time:{" "}
                   <span className="text-xl text-orange-500">
-                    {formatTime(60 - timer)}
+                    {formatTime(TIMEFORTEST - timer)}
                     <span className="text-xs">sec</span>
                   </span>
                 </p>
