@@ -126,11 +126,11 @@ const Quiz = () => {
               <div key={questions[currentQuestionIndex].id}
                 className="m-3 py-3 px-4 border border-gray-400 rounded"
               >
-                <p className="flex items-center rounded text-xl p-2">
-                  <span className="h-8 w-8 bg-sky-800 rounded-full flex justify-center items-center text-slate-200 mr-3">
+                <p className="flex rounded text-xl p-2">
+                  <span className="h-8 w-8 bg-sky-800 flex justify-center items-center text-slate-200 mr-3 p-3 rounded-full">
                     {questions[currentQuestionIndex].id}
                   </span>
-                  <p>{questions[currentQuestionIndex].question}</p>
+                  <p className="text-justify">{questions[currentQuestionIndex].question}</p>
                 </p>
                 <div className="grid grid-cols-2 gap-4 mt-5">
                   {questions[currentQuestionIndex].options.map((option, index) => (

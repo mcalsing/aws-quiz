@@ -1,75 +1,122 @@
 [
     {
       "id": 1,
-      "question": "What is the purpose of HTML in web development?",
+      "question": "Qual declaração descreve a computação em nuvem?",
       "options": [
-        "Styling web pages",
-        "Defining data structures",
-        "Programming server-side logic",
-        "Creating the structure of web pages",
-        "alsdfjalskdjflkajdflkj"
+        "(A) Oferece serviços sob um contrato de preço fixo",
+        "(B) Requer que o cliente mantenha seu próprio hardware",
+        "(C) Fornece recursos de tecnologia da informação (TI) sob demanda",
+        "(D) Fornece recursos para gerenciar apenas dados"
       ],
-      "answer": "Creating the structure of web pages",
-      "description": "HTML (Hypertext Markup Language) is the standard markup language for creating the structure of web pages. It defines the elements and their arrangement, allowing browsers to interpret and display content on the internet."
+      "answer": "(C) Fornece recursos de tecnologia da informação (TI) sob demanda",
+      "description": "A computação em nuvem é a entrega de recursos de TI sob demanda por meio da Internet com definição de preço de pagamento conforme o uso. Em vez de comprar, ter e manter datacenters e servidores físicos, você pode acessar serviços de tecnologia, como capacidade computacional, armazenamento e bancos de dados, conforme a necessidade, usando um provedor de nuvem como a Amazon Web Services (AWS)."
     },
     {
       "id": 2,
-      "question": "What does CSS stand for in web development?",
+      "question": "Qual cenário é um exemplo de software como serviço (SaaS) na computação em nuvem?",
       "options": [
-        "Computer Style Sheets",
-        "Creative Style System",
-        "Cascading Style Sheets",
-        "Colorful Style Scripts"
+        "(A) O fornecedor terceirizado gerencia a aquisição de recursos e o aplicativo. O desenvolvedor é responsável pelo conteúdo do aplicativo",
+        "(B) O desenvolvedor gerencia as atualizações, os patches e a aquisição de recursos. O fornecedor terceirizado é responsável apenas pelo hardware.",
+        "(C) O desenvolvedor implanta o código no ambiente de nuvem mantido pelo fornecedor terceirizado.",
+        "(D) O desenvolvedor mantém servidores virtuais, sistemas operacionais e dados para obter mais controle sobre os recursos."
       ],
-      "answer": "Cascading Style Sheets",
-      "description": "CSS (Cascading Style Sheets) is a style sheet language used for describing the look and formatting of a document written in HTML. It controls the presentation, layout, and design of web pages, including aspects such as colors, fonts, and spacing."
+      "answer": "(A) O fornecedor terceirizado gerencia a aquisição de recursos e o aplicativo. O desenvolvedor é responsável pelo conteúdo do aplicativo",
+      "description": "O SaaS oferece um produto completo, executado e gerenciado pelo provedor de serviços. Na maioria dos casos, quando as pessoas mencionam SaaS, estão falando de aplicativos de usuários finais (como e-mail baseado na web). Com uma oferta de SaaS, você não precisa pensar sobre a manutenção do serviço ou o gerenciamento da infraestrutura subjacente. Você só precisa se preocupar sobre como utilizará esse software específico. Ex: Rekognition, Polly, Translate."
     },
     {
       "id": 3,
-      "question": "Which of the following is a popular front-end JavaScript framework?",
+      "question": "Um desenvolvedor está concentrado em implantar códigos executados na nuvem AWS. Qual modelo de serviço de nuvem esse desenvolvedor utiliza?",
       "options": [
-        "Express.js",
-        "Vue.js",
-        "Django",
-        "Flask"
+        "(A) Infraestrutura como serviço (IaaS)",
+        "(B) Plataforma como serviço (PaaS)",
+        "(C) Software como serviço (SaaS)",
+        "(D) Modelo híbrido"
       ],
-      "answer": "Vue.js",
-      "description": "Vue.js is a progressive JavaScript framework used for building user interfaces. It is commonly used on the front end to create dynamic and reactive web applications. Vue.js is known for its simplicity and flexibility."
+      "answer": "(B) Plataforma como serviço (PaaS)",
+      "description": "Com o PaaS, não há mais a necessidade de gerenciar a infraestrutura subjacente (geralmente, hardware e sistemas operacionais) e pode manter o foco na implantação e no gerenciamento de aplicativos. Dessa forma, você fica mais eficiente, pois não precisa se preocupar com aquisição de recursos, planejamento de capacidade e manuteção de software. Ex: Elastic BeanStalk, S3."
     },
     {
       "id": 4,
-      "question": "What is the purpose of a web server in web development?",
+      "question": "Qual modelo de serviço de nuvem dá ao usuário mais controle sobre os recursos de tecnologia da informação (TI), como acesso a recursos de rede, computadores (virtuais ou em hardware dedicado) e espaço de armazenamento de dados?",
       "options": [
-        "Managing databases",
-        "Rendering user interfaces",
-        "Storing client-side scripts",
-        "Handling HTTP requests and responses"
+        "(A) Plataforma como serviço (PaaS)",
+        "(B) Software como serviço (SaaS)",
+        "(C) Modelo híbrido",
+        "(D) Infraestrutura como serviço (IaaS)"
       ],
-      "answer": "Handling HTTP requests and responses",
-      "description": "A web server is a software or hardware component that handles HTTP (Hypertext Transfer Protocol) requests and responses. It serves web pages to clients, manages communication between clients and servers, and facilitates the processing of dynamic content."
+      "answer": "(D) Infraestrutura como serviço (IaaS)",
+      "description": "O IaaS contém os componentes básicos da IT na nuvem. Normalmente, o IaaS oferece acesso a recursos de rede, computadores (virtuais ou em hardware dedicado) e espaço de armazenamento de dados. O IaaS oferece o mais alto nível de flexibilidade e controle de gerenciamento sobre os recursos de TI. Ex: EC2."
     },
     {
       "id": 5,
-      "question": "What is the role of AJAX in web development?",
+      "question": "Uma empresa tem um data center on-premises e também executa uma parte de sua infraestrutura na nuvem. Qual modelo de implantação de computação em nuvem descreve esse cenário?",
       "options": [
-        "Asynchronous JavaScript and XML",
-        "Advanced JSON and XML",
-        "Automated JavaScript and XHTML",
-        "Asynchronous JSON and XHTML"
+        "(A) Nuvem pública",
+        "(B) Nuvem dedicada",
+        "(C) Nuvem privada",
+        "(D) Nuvem hídrida"
       ],
-      "answer": "Asynchronous JavaScript and XML",
+      "answer": "(D) Nuvem hídrida",
       "description": "AJAX (Asynchronous JavaScript and XML) is a set of web development techniques used to create asynchronous web applications. It allows data to be retrieved from a server asynchronously in the background, enabling dynamic and responsive user interfaces."
     },
     {
       "id": 6,
-      "question": "What does the term 'responsive design' refer to in web development?",
+      "question": "Qual modelo de computação em nuvem oferece ao usuário a capacidade de usar imediatamente um serviço sem ter que executar ou gerenciar nenhum recurso?",
       "options": [
-        "A) Designing visually appealing websites",
-        "Creating mobile applications",
-        "Designing websites that adapt to different screen sizes",
-        "Implementing secure server configurations ning websites that ada ning websites that ada ning websites that ada ning websites that ada"
+        "(A) Infraestrutura como serviço (IaaS)",
+        "(B) Plataforma como serviço (PaaS)",
+        "(C) Software como serviço (SaaS)",
+        "(D) Contêineres como Serviço (CaaS)"
       ],
-      "answer": "Designing websites that adapt to different screen sizes",
-      "description": "Responsive design in web development refers to the practice of creating websites that can adapt and provide an optimal viewing experience across various devices and screen sizes, including desktops, tablets, and mobile phones."
+      "answer": "(B) Plataforma como serviço (PaaS)",
+      "description": "Com o PaaS, não há mais a necessidade de gerenciar a infraestrutura subjacente (geralmente, hardware e sistemas operacionais) e pode manter o foco na implantação e no gerenciamento de aplicativos. Dessa forma, você fica mais eficiente, pois não precisa se preocupar com aquisição de recursos, planejamento de capacidade e manuteção de software. Ex: Elastic BeanStalk, S3."
+    },
+    {
+      "id": 7,
+      "question": "Qual declaração descreve a AWS?",
+      "options": [
+        "(A) A AWS fornece infraestrutura on-premises que oferece suporte a todos os tipos e tamanhos de empresas",
+        "(B) A AWS é um provedor de serviços de nuvem seguro que oferece muitos serviços para ajudar as empresas a escalar e crescer",
+        "(C) A AWS é uma varejista da web que vende milhões de produtos a um custo competitivo",
+        "(D) A AWS fornece serviços da web por meio de provedores de nuvem terceirizados."
+      ],
+      "answer": "A AWS é um provedor de serviços de nuvem seguro que oferece muitos serviços para ajudar as empresas a escalar e crescer",
+      "description": "A Amazon Web Services (AWS) é a plataforma de nuvem mais adotada e mais abrangente do mundo, oferecendo mais de 200 serviços completos de datacenters em todo o mundo, contribuindo para reduzir custos, ganhar agilidade e inovar mais rapidamente."
+    },
+    {
+      "id": 8,
+      "question": "Quais tipos de transferência de dados são gratuitas para o Amazon S3?",
+      "options": [
+        "(A) Transferência de dados de saída do Amazon S3 para o Amazon EC2 em diferentes regiões",
+        "(B) Transferência de dados de saída do Amazon S3 para o Amazon CloudFront na mesma região",
+        "(C) Transferência de dados de entrada do Amazon EC2 para o Amazon S3 em diferentes regiões",
+        "(D) Transferência de dados de saída do Amazon S3 para a internet"
+      ],
+      "answer": "(B) Transferência de dados de saída do Amazon S3 para o Amazon CloudFront na mesma região",
+      "description": "Você paga por toda a largura de banda para dentro e para fora do Amazon S3, exceto pelo seguinte: 1) Dados transferidos da Internet; 2) Dados transferidos entre buckets do S3 na mesma região da AWS; 3) Dados transferidos de um bucket do Amazon S3 para qualquer serviço da AWS dentro da mesma região AWS que o bucket do S3 (incluindo para uma conta diferente na mesma região da AWS); 4) Dados transferidos para fora para o Amazon CloudFront(você não paga pela transferência de dados do seu bucket do S3 para o Amazon CloudFront se você estiver usando o CloudFront para entregar o conteúdo do seu bucket)."
+    },
+    {
+      "id": 9,
+      "question": "Qual serviço da AWS os clientes podem usar para criar estimativas, compartilhar uma estimativa com um link exclusivo e revisitar quaisquer estimativas diretamente por meio de um navegador?",
+      "options": [
+        "(A) AWS Trusted Advisor",
+        "(B) AWS Cloud Economics Center",
+        "(C) AWS Pricing Calculator",
+        "(D) AWS Cost Explorer"
+      ],
+      "answer": "(C) AWS Pricing Calculator",
+      "description": "O AWS Pricing Calculator é uma ferramenta gratuita de planejamento baseada na web que você pode usar para criar estimativas de custo para o uso dos serviços AWS, modelar soluções antes de criá-las, explorar os preços dos serviçoes e descobrir oportunidades de redução de custos."
+    },
+    {
+      "id": 10,
+      "question": "Quais opções de pagamento estão disponíveis para a maioria das instâncias reservadas do Amazon EC2?",
+      "options": [
+        "(A) Pagamento total antecipado, pagamento antecipado parcial e nenhum pagamento antecipado",
+        "(B) Pagamento antecipado parcial, nenhum pagamento antecipado e pagamento por hora",
+        "(C) Pagamento total antecipado, pagamento parcelado e pagamento por hora",
+        "(D) Pagamento trimestral, pagamento por hora e pagamento total antecipado"
+      ],
+      "answer": "(A) Pagamento total antecipado, pagamento antecipado parcial e nenhum pagamento antecipado",
+      "description": "Pagamento total antecipado: Você paga o custo total da instância reservada no momento da compra e recebe o maior desconto em relação às outras opções. Não há pagamentos mensais adicionais. Essa opção é ideal para cargas de trabalho previsíveis e de longo prazo. Pagamento antecipado parcial: Você paga uma parte do custo total da instância reservada no momento da compra e o restante mensalmente, com base na hora de uso. Essa opção oferece um equilíbrio entre desconto e flexibilidade, sendo adequada para cargas de trabalho com uso moderadamente previsível. Nenhum pagamento antecipado: Você não precisa fazer nenhum pagamento inicial e paga a instância reservada mensalmente, com base na hora de uso. Essa opção oferece a maior flexibilidade, mas também o menor desconto. É ideal para cargas de trabalho com uso variável ou imprevisível."
     }
   ]
