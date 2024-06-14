@@ -64,10 +64,10 @@
       "id": 6,
       "question": "What does the term 'responsive design' refer to in web development?",
       "options": [
-        "Designing visually appealing websites",
+        "A) Designing visually appealing websites",
         "Creating mobile applications",
         "Designing websites that adapt to different screen sizes",
-        "Implementing secure server configurations"
+        "Implementing secure server configurations ning websites that ada ning websites that ada ning websites that ada ning websites that ada"
       ],
       "answer": "Designing websites that adapt to different screen sizes",
       "description": "Responsive design in web development refers to the practice of creating websites that can adapt and provide an optimal viewing experience across various devices and screen sizes, including desktops, tablets, and mobile phones."

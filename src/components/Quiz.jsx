@@ -30,6 +30,7 @@ const Quiz = () => {
   const [timer, setTimer] = useState(TIMEFORTEST);
   const [timerIntervalId, setTimerIntervalId] = useState(null);
   const [status, setStatus] = useState("");
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   useEffect(() => {
     fetch("/quiz.json")
@@ -54,6 +55,13 @@ const Quiz = () => {
       }
     };
   }, [timer]);
+
+  useEffect(() => {
+    if (currentQuestionIndex === questions.length) {
+      // Lógica de conclusão do quiz (por exemplo, enviar quiz, mostrar resultados)
+      setCurrentQuestionIndex(0); // Redefinir para a primeira pergunta
+    }
+  }, [currentQuestionIndex, questions.length]);
 
   const handleAnswerSelect = (questionId, selectedOption) => {
     // Handle answer selection logic here
@@ -103,50 +111,53 @@ const Quiz = () => {
   };
 
   return (
-    <section>
-      <QuizHeader timer={timer} />
-      <div className="md:w-9/12 w-[90%] flex md:flex-row flex-col mx-auto">
+    <main>
+      <div className="flex justify-center gap-1">
+        <p className="text-x1 text-slate-700">Tempo restante:</p>
+        <h1 className="text-green-700" id="count">
+          {formatTime(timer)}
+        </h1>
+      </div>
+      <div className="w-[800px] flex md:flex-row flex-col mx-auto">
         {/* question section */}
-        <div className="md:w-[70%] w-full">
+        <div className="w-full text-slate-700">
           <div>
-            {questions.map((question, index) => (
-              <div
-                key={question.id}
-                className="m-3 py-3 px-4 shadow-sm border border-gray-400 rounded "
+            {questions.length > 0 && (
+              <div key={questions[currentQuestionIndex].id}
+                className="m-3 py-3 px-4 border border-gray-400 rounded"
               >
-                <p className="flex items-center rounded text-xs p-2 cursor-pointer">
-                  <span className="h-8 w-8 bg-[#FCC822] rounded-full flex justify-center items-center text-green-800 mr-3">
-                    {index + 1}
+                <p className="flex items-center rounded text-xl p-2">
+                  <span className="h-8 w-8 bg-sky-800 rounded-full flex justify-center items-center text-slate-200 mr-3">
+                    {questions[currentQuestionIndex].id}
                   </span>
-                  <p className="">{question.question}</p>
+                  <p>{questions[currentQuestionIndex].question}</p>
                 </p>
                 <div className="grid grid-cols-2 gap-4 mt-5">
-                  {question.options.map((option, index) => (
+                  {questions[currentQuestionIndex].options.map((option, index) => (
                     <div
-                      className={`border border-gray-400 rounded text-xs p-2 cursor-pointer ${
-                        answers[question.id] === option ? "bg-gray-300" : ""
-                      }`}
+                      className={`border border-gray-400 rounded p-5 cursor-pointer hover:bg-slate-300 
+                        ${ answers[questions[currentQuestionIndex].id] === option ? "bg-slate-300" : ""}`}
                       key={option}
-                      onClick={() => handleAnswerSelect(question.id, option)}
+                      onClick={() => handleAnswerSelect(questions[currentQuestionIndex].id, option)}
                     >
-                      <p className="text-[10px] mb-1">Option {index + 1}</p>
                       <p>{option}</p>
                     </div>
                   ))}
                 </div>
               </div>
-            ))}
+            )}
             <button
-              onClick={handleSubmit}
-              className="bg-[#FCC822] px-6 py-2 text-white rounded"
+              onClick={() => setCurrentQuestionIndex((prevIndex) => prevIndex + 1)}
+              disabled={currentQuestionIndex === questions.length - 1}
+              className="bg-sky-800 px-6 py-2 m-3 text-slate-200 rounded"
             >
-              Submit Quiz
+              Próxima Pergunta
             </button>
           </div>
         </div>
 
         {/* answer  section*/}
-         <div className="md:w-[30%] w-full p-4 bg-slate-200">
+         {/* <div className="md:w-[30%] w-full p-4 bg-slate-200">
           {showResult && (
             <div>
               <h3 className="text-2xl font-medium">Your Score: </h3>
@@ -178,11 +189,10 @@ const Quiz = () => {
               </button>
             </div>
           )}
-
           {loading && <Loading />}
-        </div>
+        </div> */}
       </div>
-    </section>
+    </main>
   );
 };
 
