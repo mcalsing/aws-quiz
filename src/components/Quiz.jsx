@@ -35,9 +35,14 @@ const Quiz = () => {
   useEffect(() => {
     fetch("/quiz.json")
       .then((response) => response.json())
-      .then((data) => setQuestions(data))
+      .then((data) => {
+        data.sort(() => Math.random() - 0.5);
+        setQuestions(data);
+      })
       .catch((error) => console.error("Error fetching quiz data:", error));
+  }, []);
 
+  useEffect(() => {
     // Set up the timer interval
     const intervalId = setInterval(() => {
       setTimer((prevTimer) => {
@@ -56,12 +61,12 @@ const Quiz = () => {
     };
   }, [timer]);
 
-  useEffect(() => {
+ /*  useEffect(() => {
     if (currentQuestionIndex === questions.length) {
-      // Lógica de conclusão do quiz (por exemplo, enviar quiz, mostrar resultados)
+      alert("testeeee")
       setCurrentQuestionIndex(0); // Redefinir para a primeira pergunta
     }
-  }, [currentQuestionIndex, questions.length]);
+  }, [currentQuestionIndex, questions.length]); */
 
   const handleAnswerSelect = (questionId, selectedOption) => {
     // Handle answer selection logic here
@@ -69,14 +74,14 @@ const Quiz = () => {
     setAnswers(updatedAnswers);
   };
 
-/*   const handleNextQuestion = () => {
+  const handleNextQuestion = () => {
     if (currentQuestionIndex < questions.length -1) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex +1);
+       setIsButtonDisabled(currentQuestionIndex === questions.length - 2);
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
-      alert(isButtonDisabled)
       setIsButtonDisabled(true);
     }
-  } */
+  }
 
   const handleSubmit = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -156,9 +161,9 @@ const Quiz = () => {
               </div>
             )}
             <button
-              onClick={() => setCurrentQuestionIndex((prevIndex) => prevIndex + 1)}
-              disabled={currentQuestionIndex === questions.length - 1}
-              className={`${(currentQuestionIndex === questions.length - 1) ? "text-slate-400" : "text-slate-100"} bg-sky-800 px-6 py-2 m-3 rounded`}
+              onClick={handleNextQuestion}
+               disabled={isButtonDisabled}
+              className={`${isButtonDisabled ? "text-slate-400" : "text-slate-100"} bg-sky-800 px-6 py-2 m-3 rounded`}
             >
               Próxima Pergunta
             </button>
@@ -166,7 +171,7 @@ const Quiz = () => {
         </div>
 
         {/* answer  section*/}
-         {/* <div className="md:w-[30%] w-full p-4 bg-slate-200">
+        { <div className="md:w-[30%] w-full p-4 bg-slate-200">
           {showResult && (
             <div>
               <h3 className="text-2xl font-medium">Your Score: </h3>
@@ -199,7 +204,8 @@ const Quiz = () => {
             </div>
           )}
           {loading && <Loading />}
-        </div> */}
+        </div>
+        }     
       </div>
     </main>
   );
