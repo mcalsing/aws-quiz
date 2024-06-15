@@ -20,7 +20,7 @@ const Home = () => {
       {loading && <Loading />}
 
       <div className="w-full space-y-5">
-        <h2 className="lg:text-2xl text-xl text-slate-700 flex justify-center">
+        <h2 className="lg:text-2xl text-xl text-slate-700 flex justify-center border-b-2 border-gray-400">
           Bem-vindo ao simulado CLF-C02!
         </h2>
         <p className="text-slate-800">
@@ -31,7 +31,7 @@ const Home = () => {
             onClick={handleStateQuiz}
             className="bg-sky-800 px-6 py-2 text-white rounded w-40"
           >
-            Start Quiz
+            Começar Quiz
           </button>
         </div>
           <p className="text-justify text-slate-800">

@@ -2,7 +2,7 @@ import React from "react";
 import logo from "/images/logo.png";
 const Navbar = () => {
   return (
-    <header className="h-16 shadow-sm flex items-center">
+    <header className="h-16 shadow-md flex items-center text-slate-700 bg-slate-300">
       <nav className="flex justify-between items-center w-9/12 mx-auto">
         <a href="/">
           Home

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import QuizHeader from "./QuizHeader";
 
 const TIMEFORTEST = 30*60;
 
@@ -31,6 +30,7 @@ const Quiz = () => {
   const [timerIntervalId, setTimerIntervalId] = useState(null);
   const [status, setStatus] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   useEffect(() => {
     fetch("/quiz.json")
@@ -68,6 +68,15 @@ const Quiz = () => {
     const updatedAnswers = { ...answers, [questionId]: selectedOption };
     setAnswers(updatedAnswers);
   };
+
+/*   const handleNextQuestion = () => {
+    if (currentQuestionIndex < questions.length -1) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex +1);
+    } else {
+      alert(isButtonDisabled)
+      setIsButtonDisabled(true);
+    }
+  } */
 
   const handleSubmit = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -112,7 +121,7 @@ const Quiz = () => {
 
   return (
     <main>
-      <div className="flex justify-center gap-1">
+      <div className="flex justify-center gap-1 pt-3">
         <p className="text-x1 text-slate-700">Tempo restante:</p>
         <h1 className="text-green-700" id="count">
           {formatTime(timer)}
@@ -124,10 +133,10 @@ const Quiz = () => {
           <div>
             {questions.length > 0 && (
               <div key={questions[currentQuestionIndex].id}
-                className="m-3 py-3 px-4 border border-gray-400 rounded"
+                className="m-3 py-3 px-4 border border-slate-400 rounded"
               >
                 <p className="flex rounded text-xl p-2">
-                  <span className="h-8 w-8 bg-sky-800 flex justify-center items-center text-slate-200 mr-3 p-3 rounded-full">
+                  <span className="h-9 w-9 bg-sky-800 flex justify-center items-center text-slate-100 mr-3 p-3 rounded-full">
                     {questions[currentQuestionIndex].id}
                   </span>
                   <p className="text-justify">{questions[currentQuestionIndex].question}</p>
@@ -135,8 +144,8 @@ const Quiz = () => {
                 <div className="grid grid-cols-2 gap-4 mt-5">
                   {questions[currentQuestionIndex].options.map((option, index) => (
                     <div
-                      className={`border border-gray-400 rounded p-5 cursor-pointer hover:bg-slate-300 
-                        ${ answers[questions[currentQuestionIndex].id] === option ? "bg-slate-300" : ""}`}
+                      className={`border border-gray-400 rounded p-5 cursor-pointer hover:bg-sky-800 hover:text-slate-300 
+                        ${answers[questions[currentQuestionIndex].id] === option ? "bg-sky-800 text-slate-100" : ""}`}
                       key={option}
                       onClick={() => handleAnswerSelect(questions[currentQuestionIndex].id, option)}
                     >
@@ -149,7 +158,7 @@ const Quiz = () => {
             <button
               onClick={() => setCurrentQuestionIndex((prevIndex) => prevIndex + 1)}
               disabled={currentQuestionIndex === questions.length - 1}
-              className="bg-sky-800 px-6 py-2 m-3 text-slate-200 rounded"
+              className={`${(currentQuestionIndex === questions.length - 1) ? "text-slate-400" : "text-slate-100"} bg-sky-800 px-6 py-2 m-3 rounded`}
             >
               Próxima Pergunta
             </button>
