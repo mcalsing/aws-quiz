@@ -32,6 +32,7 @@ const Quiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [showQuestion, setShowQuestion] = useState(true);
+  const [correctAnswers, setCorrectAnswers] = useState({})
 
   useEffect(() => {
     fetch("/quiz.json")
@@ -42,6 +43,14 @@ const Quiz = () => {
       })
       .catch((error) => console.error("Error fetching quiz data:", error));
   }, []);
+
+  useEffect(() => {
+    const questionAnswerMap = {};
+    for (const question of questions) {
+      questionAnswerMap[question.id] = question.answer;
+    }
+    setCorrectAnswers(questionAnswerMap);
+  }, [questions]);
 
   useEffect(() => {
     // Set up the timer interval
@@ -73,7 +82,6 @@ const Quiz = () => {
     // Handle answer selection logic here
     const updatedAnswers = { ...answers, [questionId]: selectedOption };
     setAnswers(updatedAnswers);
-    console.log(updatedAnswers)
   };
 
   const handleNextQuestion = () => {
@@ -112,14 +120,14 @@ const Quiz = () => {
   };
 
   const calculateScore = (userAnswers) => {
-    //Faz a soma correta do score quando perguntas random
+    
     const questionAnswerMap = {};
     for (const question of questions) {
       questionAnswerMap[question.id] = question.answer;
     }
     let score = 0;
     for (const questionId in userAnswers) {
-      const correctAnswer = questionAnswerMap[questionId];
+      const correctAnswer = correctAnswers[questionId];
       if (userAnswers[questionId] === correctAnswer) {
         score++;
       }
@@ -129,22 +137,7 @@ const Quiz = () => {
 
   // Reset states and reload the page
   const restartQuiz = () => {
-    setLoading(true);
-    setAnswers({});
-    setScore(0);
-    setShowResult(false);
-    setLoading(false);
-    setTimer(TIMEFORTEST);
-    navigate("/quiz");
-    setShowQuestion(true);
-    // Refaz a lista randomica de perguntas
-    fetch("/quiz.json")
-      .then((response) => response.json())
-      .then((data) => {
-        data.sort(() => Math.random() - 0.5);
-        setQuestions(data);
-      })
-      .catch((error) => console.error("Error fetching quiz data:", error));
+    window.location.reload();
   };
 
   return (
@@ -204,9 +197,9 @@ const Quiz = () => {
         )}
         {/* answer  section*/}
         {showResult && (
-          <div className="bg-sky-400">
+          <div className="text-slate-700">
             <h3 className="text-2xl font-medium">Your Score: </h3>
-            <div className="h-[220px] w-[220px] mx-auto mt-8 flex flex-col justify-center items-center border-2 rounded-tr-[50%] rounded-bl-[50%]">
+            <div className="h-[240px] w-[240px] mx-auto mt-4 flex flex-col justify-center items-center border-2 border-sky-800 rounded-tr-[50%] rounded-bl-[50%]">
               <h3
                 className={`text-xl ${
                   status === "Passed" ? "text-green-800" : "text-red-500"
@@ -214,9 +207,9 @@ const Quiz = () => {
               >
                 {status}
               </h3>
-              <h1 className="text-3xl font-bold my-2">
+              <h1 className="text-4xl my-2">
                 {score}
-                <span className="text-slate-800">/10</span>
+                <span className="text-slate-700">/10</span>
               </h1>
               <p className="text-sm flex justify-center items-center gap-2">
                 Total Time:{" "}
@@ -228,17 +221,34 @@ const Quiz = () => {
             </div>
             <button
               onClick={restartQuiz}
-              className="bg-[#FCC822] text-white w-full py-2 rounded mt-16"
+              className="bg-sky-800 text-slate-100 w-full py-2 rounded mt-10"
             >
               Restart
             </button>
-            <h2>Your Answers:</h2>
+            <p className="text-xl mt-5">Respostas Incorretas:</p>
             <ul>
-              {Object.keys(answers).map((key) => (
-                <li key={key} className="text-base mb-2">
-                  {key}: {answers[key]}
-                </li>
-              ))}
+              {Object.keys(answers).map((key) => {
+                const correctAnswer = correctAnswers[key];
+                const question = questions.find((q) => q.id === parseInt(key));
+                const questionDescription = question?.description;
+                if (answers[key] !== correctAnswer) {
+                  return (
+                    <li key={key} className="text-base text-justify mt-6">
+                      <p className="font-bold mb-1">Questão {key}: {question.question}</p>
+                      <ul className="list-disc pl-8">
+                        {question.options.map((option, index) => (
+                          <li key={index}>
+                            <p className="">{option}</p>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="mt-2"><b>Resposta Correta:</b> {correctAnswer}</p>
+                      <p className="mt-2"><b>Explicação:</b> {questionDescription}</p>
+                    </li>
+                  );
+                }
+                return null; // Não renderizar se a resposta estiver correta
+              })}
             </ul>
           </div>
         )}
