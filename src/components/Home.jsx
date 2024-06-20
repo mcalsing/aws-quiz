@@ -24,7 +24,7 @@ const Home = () => {
           Bem-vindo ao simulado CLF-C02!
         </h2>
         <p className="text-slate-800">
-          Este é um projeto independente afim de testar seus conhecimento para o exame de AWS Cloud Practitioner.
+          Este é um projeto independente afim de testar seus (o meu também) conhecimento para o exame de AWS Cloud Practitioner.
         </p>
         <div className="flex justify-center">
           <button

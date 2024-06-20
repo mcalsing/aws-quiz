@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const TIMEFORTEST = 2*60;
+const AMOUNTQUESTIONS = 5; 
 
 const Loading = () => (
   <div className="h-[220px] w-[220px] mx-auto mt-8 flex flex-col justify-center items-center border-2 rounded-tr-[50%] rounded-bl-[50%]">
@@ -30,7 +31,7 @@ const Quiz = () => {
   const [timerIntervalId, setTimerIntervalId] = useState(null);
   const [status, setStatus] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [isButtonNextDisabled, setIsButtonNextDisabled] = useState(false);
   const [showQuestion, setShowQuestion] = useState(true);
   const [correctAnswers, setCorrectAnswers] = useState({})
 
@@ -71,13 +72,6 @@ const Quiz = () => {
     };
   }, [timer]);
 
- /*  useEffect(() => {
-    if (currentQuestionIndex === questions.length) {
-      alert("testeeee")
-      setCurrentQuestionIndex(0); // Redefinir para a primeira pergunta
-    }
-  }, [currentQuestionIndex, questions.length]); */
-
   const handleAnswerSelect = (questionId, selectedOption) => {
     // Handle answer selection logic here
     const updatedAnswers = { ...answers, [questionId]: selectedOption };
@@ -85,19 +79,16 @@ const Quiz = () => {
   };
 
   const handleNextQuestion = () => {
-    if (currentQuestionIndex < questions.length -1) {
+    if (currentQuestionIndex < AMOUNTQUESTIONS) {
       /* setIsButtonDisabled(currentQuestionIndex === questions.length - 2); */
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     } 
-    if ((currentQuestionIndex === questions.length - 2)) {
-      setIsButtonDisabled(true);
+    if ((currentQuestionIndex === (AMOUNTQUESTIONS - 2) )) {
+      setIsButtonNextDisabled(true);
       if (timer === 0 ) {
         setShowResult(true);
       }
     } 
-   /*  else {
-      setIsButtonDisabled(true);
-    } */
   }
 
   const handleSubmit = () => {
@@ -109,9 +100,9 @@ const Quiz = () => {
     setTimeout(() => {
       const quizScore = calculateScore(answers);
       setScore(quizScore);
-      const percentage = (quizScore / questions.length) * 100;
+      const percentage = (quizScore / AMOUNTQUESTIONS) * 100;
       // Determine the status based on the percentage
-      const newStatus = percentage >= 50 ? "Passed" : "Failed";
+      const newStatus = percentage >= 70 ? "Passed" : "Failed";
       setStatus(newStatus);
       setShowResult(true);
       setLoading(false);
@@ -168,7 +159,7 @@ const Quiz = () => {
                   <div className="grid grid-cols-2 gap-4 mt-5">
                     {questions[currentQuestionIndex].options.map((option, index) => (
                       <div
-                        className={`border border-gray-400 rounded p-5 cursor-pointer hover:bg-sky-800 hover:text-slate-300 
+                        className={`border border-gray-400 rounded p-5 cursor-pointer hover:bg-sky-800 hover:text-slate-400 
                           ${answers[questions[currentQuestionIndex].id] === option ? "bg-sky-800 text-slate-100" : ""}`}
                         key={option}
                         onClick={() => handleAnswerSelect(questions[currentQuestionIndex].id, option)}
@@ -181,14 +172,15 @@ const Quiz = () => {
               )}
               <button
                 onClick={handleNextQuestion}
-                disabled={isButtonDisabled}
-                className={`${isButtonDisabled ? "text-slate-400" : "text-slate-100"} bg-sky-800 px-6 py-2 m-3 rounded`}
+                disabled={isButtonNextDisabled}
+                className={`${isButtonNextDisabled ? "text-slate-400" : "text-slate-100"} bg-sky-800 px-6 py-2 m-3 rounded`}
               >
                 Próxima Pergunta
               </button>
               <button
-                onClick={handleSubmit} 
-                className="text-slate-100 bg-sky-800 px-6 py-2 m-3 rounded"
+                onClick={handleSubmit}
+                disabled={!isButtonNextDisabled}
+                className={`${!isButtonNextDisabled ? "text-slate-400" : "text-slate-100"} text-slate-100 bg-sky-800 px-16 py-2 m-3 rounded`}
               >
                 Submit
               </button>
@@ -198,7 +190,7 @@ const Quiz = () => {
         {/* answer  section*/}
         {showResult && (
           <div className="text-slate-700">
-            <h3 className="text-2xl font-medium">Your Score: </h3>
+            <h3 className="text-2xl font-medium mt-3">Sua pontuação: </h3>
             <div className="h-[240px] w-[240px] mx-auto mt-4 flex flex-col justify-center items-center border-2 border-sky-800 rounded-tr-[50%] rounded-bl-[50%]">
               <h3
                 className={`text-xl ${
@@ -208,8 +200,8 @@ const Quiz = () => {
                 {status}
               </h3>
               <h1 className="text-4xl my-2">
-                {score}
-                <span className="text-slate-700">/10</span>
+                {((score/AMOUNTQUESTIONS)*100).toFixed(1)}%
+                {/* <span className="text-slate-700">/60</span> */}
               </h1>
               <p className="text-sm flex justify-center items-center gap-2">
                 Total Time:{" "}
@@ -225,7 +217,7 @@ const Quiz = () => {
             >
               Restart
             </button>
-            <p className="text-xl mt-5">Respostas Incorretas:</p>
+            <p className="text-xl mt-5">Respostas Incorretas - {AMOUNTQUESTIONS - score}/{AMOUNTQUESTIONS}:</p>
             <ul>
               {Object.keys(answers).map((key) => {
                 const correctAnswer = correctAnswers[key];
@@ -238,12 +230,16 @@ const Quiz = () => {
                       <ul className="list-disc pl-8">
                         {question.options.map((option, index) => (
                           <li key={index}>
-                            <p className="">{option}</p>
+                            <p
+                              className={`${answers[key] === option ? "text-red-500" : ""}`}
+                            >
+                              {option}
+                            </p>
                           </li>
                         ))}
                       </ul>
-                      <p className="mt-2"><b>Resposta Correta:</b> {correctAnswer}</p>
-                      <p className="mt-2"><b>Explicação:</b> {questionDescription}</p>
+                      <p className="mt-2"><b>Resposta Correta: </b>{correctAnswer}</p>
+                      <p className="mt-2"><b>Explicação: </b>{questionDescription}</p>
                     </li>
                   );
                 }

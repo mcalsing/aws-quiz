@@ -16,9 +16,9 @@
       "question": "Qual cenário é um exemplo de software como serviço (SaaS) na computação em nuvem?",
       "options": [
         "(A) O fornecedor terceirizado gerencia a aquisição de recursos e o aplicativo. O desenvolvedor é responsável pelo conteúdo do aplicativo",
-        "(B) O desenvolvedor gerencia as atualizações, os patches e a aquisição de recursos. O fornecedor terceirizado é responsável apenas pelo hardware.",
-        "(C) O desenvolvedor implanta o código no ambiente de nuvem mantido pelo fornecedor terceirizado.",
-        "(D) O desenvolvedor mantém servidores virtuais, sistemas operacionais e dados para obter mais controle sobre os recursos."
+        "(B) O desenvolvedor gerencia as atualizações, os patches e a aquisição de recursos. O fornecedor terceirizado é responsável apenas pelo hardware",
+        "(C) O desenvolvedor implanta o código no ambiente de nuvem mantido pelo fornecedor terceirizado",
+        "(D) O desenvolvedor mantém servidores virtuais, sistemas operacionais e dados para obter mais controle sobre os recursos"
       ],
       "answer": "(A) O fornecedor terceirizado gerencia a aquisição de recursos e o aplicativo. O desenvolvedor é responsável pelo conteúdo do aplicativo",
       "description": "O SaaS oferece um produto completo, executado e gerenciado pelo provedor de serviços. Na maioria dos casos, quando as pessoas mencionam SaaS, estão falando de aplicativos de usuários finais (como e-mail baseado na web). Com uma oferta de SaaS, você não precisa pensar sobre a manutenção do serviço ou o gerenciamento da infraestrutura subjacente. Você só precisa se preocupar sobre como utilizará esse software específico. Ex: Rekognition, Polly, Translate."
@@ -57,7 +57,7 @@
         "(D) Nuvem hídrida"
       ],
       "answer": "(D) Nuvem hídrida",
-      "description": "AJAX (Asynchronous JavaScript and XML) is a set of web development techniques used to create asynchronous web applications. It allows data to be retrieved from a server asynchronously in the background, enabling dynamic and responsive user interfaces."
+      "description": "Em breve"
     },
     {
       "id": 6,
@@ -118,5 +118,293 @@
       ],
       "answer": "(A) Pagamento total antecipado, pagamento antecipado parcial e nenhum pagamento antecipado",
       "description": "Pagamento total antecipado: Você paga o custo total da instância reservada no momento da compra e recebe o maior desconto em relação às outras opções. Não há pagamentos mensais adicionais. Essa opção é ideal para cargas de trabalho previsíveis e de longo prazo. Pagamento antecipado parcial: Você paga uma parte do custo total da instância reservada no momento da compra e o restante mensalmente, com base na hora de uso. Essa opção oferece um equilíbrio entre desconto e flexibilidade, sendo adequada para cargas de trabalho com uso moderadamente previsível. Nenhum pagamento antecipado: Você não precisa fazer nenhum pagamento inicial e paga a instância reservada mensalmente, com base na hora de uso. Essa opção oferece a maior flexibilidade, mas também o menor desconto. É ideal para cargas de trabalho com uso variável ou imprevisível."
+    },
+    {
+      "id": 11,
+      "question": "O que significa o conceito de grande economia de escala em termos de computação em nuvem?",
+      "options": [
+        "(A) O custo de computação em nuvem é reduzido quando os clientes usam serviços de scaling",
+        "(B) A computação em nuvem tem custo variável menor quando a economia está boa",
+        "(C) As economias podem ser repassadas para os clientes quando mais clientes usam a AWS",
+        "(D) As economias podem ser repassadas para os clientes quando a AWS cria mais data centers"
+      ],
+      "answer": "(C)  As economias podem ser repassadas para os clientes quando mais clientes usam a AWS",
+      "description": "Ao usar a computação em nuvem, você pode obter um custo variável menor do que o obtido sozinho. Como o uso de centenas de milhares de clientes é agregado na nuvem, provedores como esse AWS podem obter maiores economias de escala, o que se traduz em preços de pagamento as-you-go mais baixos"
+    },
+    {
+      "id": 12,
+      "question": "O que quer dizer a frase “tenha alcance global em minutos”?",
+      "options": [
+        "(A) Os usuários podem ter clientes de todo o mundo adicionados às suas contas da AWS instantaneamente",
+        "(B) Os usuários podem implantar suas soluções em várias Regiões AWS ao redor do mundo com apenas alguns cliques",
+        "(C) Os usuários podem compartilhar recursos de computação de uma região AWS com outras regiões",
+        "(D) Os usuários podem acessar recursos de desenvolvedor de outras partes do mundo para acelerar seus projetos"
+      ],
+      "answer": "(B) Os usuários podem implantar suas soluções em várias Regiões AWS ao redor do mundo com apenas alguns cliques",
+      "description": "Implante facilmente seu aplicativo em várias regiões ao redor do mundo com apenas alguns cliques. Isso significa que você pode fornecer menor latência e uma melhor experiência para seus clientes a um custo mínimo."
+    },
+    {
+      "id": 13,
+      "question": "A infraestrutura global da AWS foi projetada e criada para fornecer qual competência?",
+      "options": [
+        "(A) Acesso à internet",
+        "(B) Pontos de presença em todos os países do mundo",
+        "(C) A mesma estrutura de custos de serviço em todas as regiões",
+        "(D) Escalabilidade"
+      ],
+      "answer": "(D) Escalabilidade",
+      "description": "Em breve"
+    },
+    {
+      "id": 14,
+      "question": "O que é uma zona de disponibilidade?",
+      "options": [
+        "(A) Um ou mais data center(s) criado(s) com isolamento de falhas",
+        "(B) Uma área geográfica isolada",
+        "(C) Data centers construídos sem isolamento de falhas porque são agrupados juntos",
+        "(D) Todos os data centers em um raio de 100 milhas (161 quilômetros)"
+      ],
+      "answer": "(A) Um ou mais data center(s) criado(s) com isolamento de falhas",
+      "description": "Uma zona de disponibilidade (AZ) é um ou mais datacenters distintos com energia, rede e conectividade redundantes em uma região da AWS. As AZs proporcionam aos clientes a capacidade de operar aplicativos e bancos de dados de produção com alta disponibilidade, tolerância a falhas e escalabilidade em níveis superiores aos que um único datacenter pode oferecer. Todas as AZs em uma região da AWS estão interconectadas por redes de alta largura de banda e baixa latência, usando fibra metropolitana dedicada e totalmente redundante para proporcionar redes de alto throughput e baixa latência entre AZs."
+    },
+    {
+      "id": 15,
+      "question": "O que é uma Região AWS?",
+      "options": [
+        "(A) Um único data center",
+        "(B) Um grupo de data centers em um raio de 100 milhas (161 quilômetros)",
+        "(C) Uma área geográfica no mundo",
+        "(D) Uma área geográfica nos Estados Unidos"
+      ],
+      "answer": "(C) Uma área geográfica no mundo",
+      "description": "A AWS tem o conceito de região, que é um local físico em todo o mundo onde estão os datacenters. Cada região da AWS consiste no mínimo em três AZs isoladas e separadas fisicamente em uma área geográfica."
+    },
+    {
+      "id": 16,
+      "question": "Quantas zonas de disponibilidade existem em uma Região AWS?",
+      "options": [
+        "(A) Uma a duas",
+        "(B) Duas ou mais",
+        "(C) Quatro ou mais",
+        "(D) No mínimo, três"
+      ],
+      "answer": "(D) No mínimo, três",
+      "description": "Cada região da AWS consiste no mínimo em três AZs isoladas e separadas fisicamente em uma área geográfica."
+    },
+    {
+      "id": 17,
+      "question": "O que é o Amazon CloudFront?",
+      "options": [
+        "(A) Uma rede dedicada que fornece conteúdo para usuários finais na mesma zona de disponibilidade",
+        "(B) Uma rede global de entrega de conteúdo (CDN) que fornece conteúdo a usuários finais com latência reduzida",
+        "(C) Rede de entrega de conteúdo (CDN) que fornece conteúdo em uma única localização geográfica",
+        "(D) Um serviço que trabalha com provedores terceirizados para entregar conteúdo a usuários finais com latência reduzida"
+      ],
+      "answer": "(B) Uma rede global de entrega de conteúdo (CDN) que fornece conteúdo a usuários finais com latência reduzida",
+      "description": "É uma rede de entrega de conteúdo (CDN) rápida que entrega dados, vídeos, aplicativos e APIs com baixa latência e altas velocidades de transferência."
+    },
+    {
+      "id": 18,
+      "question": "De acordo com o modelo de responsabilidade compartilhada da AWS, quais são as responsabilidades da AWS?",
+      "options": [
+        "(A) Segurança na nuvem",
+        "(B) Segurança fora da nuvem",
+        "(C) Segurança dentro e fora da nuvem",
+        "(D) Segurança da nuvem"
+      ],
+      "answer": "(D) Segurança da nuvem",
+      "description": "A AWS é responsável por proteger a infraestrutura que executa todos os serviços oferecidos na Nuvem AWS. Essa infraestrutura é composta por hardware, software, redes e instalações que executam os serviços de nuvem AWS."
+    },
+    {
+      "id": 19,
+      "question": "Qual área de interesse o modelo de responsabilidade compartilhada da AWS aborda, além da segurança?",
+      "options": [
+        "(A) Custos",
+        "(B) Desempenho",
+        "(C) Desempenho",
+        "(D) Disponibilidade"
+      ],
+      "answer": "(D) Disponibilidade",
+      "description": "Em breve"
+    },
+    {
+      "id": 20,
+      "question": "De acordo com o modelo de responsabilidade compartilhada da AWS, o cliente é responsável por quais tarefas?",
+      "options": [
+        "(A) Garantir que os usuários insiram uma ID de usuário e senha antes de usarem um aplicativo",
+        "(B) Proteger o prédio físico onde os servidores funcionam",
+        "(C) Isolar as instâncias do servidor virtual na infraestrutura",
+        "(D) Aplicar atualizações de segurança do sistema operacional aos servidores que executam um AWS managed service"
+      ],
+      "answer": "(A) Garantir que os usuários insiram uma ID de usuário e senha antes de usarem um aplicativo",
+      "description": "O cliente é responsável por segurança na nuvem, determinada pelos Serviços de nuvem AWS selecionados por ele. Isso determina a quantidade de operações de configuração que o cliente deverá executar como parte de suas responsabilidades de segurança."
+    },
+    {
+      "id": 21,
+      "question": "Qual modelo de computação em nuvem exige que o cliente se envolva mais no gerenciamento da segurança da infraestrutura?",
+      "options": [
+        "(A) Infraestrutura como serviço (IaaS)",
+        "(B) Plataforma como serviço (PaaS)",
+        "(C) Software como serviço (SaaS)",
+        "(D) Contêineres como Serviço (CaaS)"
+      ],
+      "answer": "(A) Infraestrutura como serviço (IaaS)",
+      "description": "O IaaS contém os componentes básicos da IT na nuvem. Normalmente, o IaaS oferece acesso a recursos de rede, computadores (virtuais ou em hardware dedicado) e espaço de armazenamento de dados. O IaaS oferece o mais alto nível de flexibilidade e controle de gerenciamento sobre os recursos de TI. Ex: EC2."
+    },
+    {
+      "id": 22,
+      "question": "Qual modelo de computação em nuvem exige que a AWS gerencie a segurança da infraestrutura em sua totalidade?",
+      "options": [
+        "(A) Contêineres como Serviço (CaaS)",
+        "(B) Software como serviço (SaaS)",
+        "(C) Plataforma como serviço (PaaS)",
+        "(D) Infraestrutura como serviço (IaaS)"
+      ],
+      "answer": "(B) Software como serviço (SaaS)",
+      "description": "O SAAS oferece um produto completo, executado e gerenciado pelo provedor de serviços. Na maioria dos casos, quando as pessoas mencionam SaaS, estão falando de aplicativos de usuários finais (como e-mail baseado na web). Com uma oferta de SaaS, você não precisa pensar sobre a manutenção do serviço ou o gerenciamento da infraestrutura subjacente. Você só precisa se preocupar sobre como utilizará esse software específico. Ex: Rekognition, Polly, Translate."
+    },
+    {
+      "id": 23,
+      "question": "Um administrador deseja criar novos usuários para sua conta AWS e atribuir permissões a eles. Qual dos serviços deve ser usado pelo administrador?",
+      "options": [
+        "(A) Amazon EC2",
+        "(B) Amazon EC2",
+        "(C) Amazon Route 53",
+        "(D) AWS Identity and Access Management (IAM)"
+      ],
+      "answer": "(D) AWS Identity and Access Management (IAM)",
+      "description": "Cada conta AWS é, na verdade, um usuário root. Este usuário possui usuários IAM associados a ele que são utilizados para gerenciar os recursos da conta. Esses usuários IAM (sem ser o root) podem (sem obrigatoriedade) estar contidos em grupos IAM. Um usuário IAM pode estar contido em vários grupos IAM. Um grupo IAM pode conter vários usuários IAM.Um grupo IAM NÃO pode conter outro grupo IAM."
+    },
+    {
+      "id": 24,
+      "question": "Quais das opções a seguir são categorias de serviços da AWS?",
+      "options": [
+        "(A) Segurança, identidade e conformidade",
+        "(B) Zonas de disponibilidade",
+        "(C) Data Warehouse",
+        "(D) Amazon Route 53"
+      ],
+      "answer": "(A) Segurança, identidade e conformidade",
+      "description": "Em breve"
+    },
+    {
+      "id": 25,
+      "question": "Qual serviço computacional permite que os usuários criem máquinas virtuais na nuvem?",
+      "options": [
+        "(A) AWS Lambda",
+        "(B) AWS Elastic Beanstalk",
+        "(C) AWS Batch",
+        "(D) Amazon EC2"
+      ],
+      "answer": "(D) Amazon EC2",
+      "description": "O Elastic Compute Cloud é um dos serviços mais fundamentais e populares da AWS que tem capacidade computacional redimensionável na nuvem. Ele foi projetado para facilitar a computação em escala na Web permitindo que empresas e desenvolvedores criem e gerenciem VM’s (Virtual Machine) podendo escolher o tipo de VM que melhor atende às suas necessidades tendo a possibilidade de configurar fatores como sistema operacional, processador, memória, armazenamento e rede."
+    },
+    {
+      "id": 26,
+      "question": "Qual serviço os usuários podem utilizar para provisionar uma seção logicamente isolada da nuvem AWS para estabelecer uma rede virtual?",
+      "options": [
+        "(A) Amazon Aurora",
+        "(B) Amazon Route 53",
+        "(C) Amazon VPC",
+        "(D) Amazon Elastic Container Service (Amazon ECS)"
+      ],
+      "answer": "(C) Amazon VPC",
+      "description": "Com a Amazon Virtual Private Cloud, é possível iniciar recursos da AWS em uma rede virtual definida por você. Essa rede virtual se assemelha a uma rede tradicional que você operaria no seu datacenter, com os benefícios de usar a infraestrutura dimensionável da AWS."
+    },
+    {
+      "id": 27,
+      "question": "Qual propriedade identifica exclusivamente um objeto no bucket do Amazon S3?",
+      "options": [
+        "(A) Valor do objeto",
+        "(B) Chave do objeto",
+        "(C) Versão",
+        "(D) Metadados"
+      ],
+      "answer": "(B) Chave do objeto",
+      "description": "Em breve"
+    },
+    {
+      "id": 28,
+      "question": "Quantos noves de durabilidade o Amazon S3 foi projetado para fornecer?",
+      "options": [
+        "(A) 4 noves (99,99)",
+        "(B) 4 noves (99,99)",
+        "(C) 4 noves (99,99)",
+        "(D) 11 noves (99,999999999)"
+      ],
+      "answer": "(D) 11 noves (99,999999999)",
+      "description": "Todas as classes de armazenamento S3 Glacier fornecem escalabilidade virtualmente ilimitada e são projetadas para 99,999999999% (11 noves) de durabilidade de dados."
+    },
+    {
+      "id": 29,
+      "question": "Uma empresa financeira deseja usar a solução mais barata do Amazon S3 para o armazenamento de longo prazo. Ela só precisará acessar seus dados uma ou duas vezes por ano. Qual classe de armazenamento do Amazon S3 ela deve escolher?",
+      "options": [
+        "(A) S3 Glacier Deep Archive",
+        "(B) S3 Standard-Infrequent Access (S3 Standard-IA)",
+        "(C) S3 Standard",
+        "(D) S3 One Zone-Infrequent Access (S3 One Zone-IA)"
+      ],
+      "answer": "(A) S3 Glacier Deep Archive",
+      "description": "É possível escolher entre três classes de armazenamento de arquivo otimizadas para diferentes padrões de acesso e duração de armazenamento. Para economizar ainda mais em armazenamento de arquivo de longa duração, como arquivos de conformidade e preservação de mídia digital, é recomendado  S3 Glacier Deep Archive, armazenamento de menor custo na nuvem com recuperação de dados em 12 horas."
+    },
+    {
+      "id": 30,
+      "question": "Qual ação incorre em um custo ao usar o Amazon S3?",
+      "options": [
+        "(A) Transferência de dados para o Amazon S3",
+        "(B) Transferência de dados para fora do Amazon S3 e para o Amazon CloudFront",
+        "(C) Transferência de dados para outras regiões AWS",
+        "(D) Transferência de dados com mais de 5 MB para o Amazon S3"
+      ],
+      "answer": "(C) Transferência de dados para outras regiões AWS",
+      "description": "Você paga por toda a largura de banda para dentro e para fora do Amazon S3, exceto pelo seguinte: 1) Dados transferidos da Internet; 2) Dados transferidos entre buckets do S3 na mesma região da AWS; 3) Dados transferidos de um bucket do Amazon S3 para qualquer serviço da AWS dentro da mesma região AWS que o bucket do S3 (incluindo para uma conta diferente na mesma região da AWS); 4) Dados transferidos para fora para o Amazon CloudFront(você não paga pela transferência de dados do seu bucket do S3 para o Amazon CloudFront se você estiver usando o CloudFront para entregar o conteúdo do seu bucket)."
+    },
+    {
+      "id": 31,
+      "question": "Um desenvolvedor deseja executar um aplicativo que carrega uma grande quantidade de dados dentro da memória em uma instância do Amazon EC2. Qual tipo de instância o desenvolvedor deve escolher para alcançar o melhor desempenho?",
+      "options": [
+        "(A) Uso geral",
+        "(B) Otimizada para computação",
+        "(C) Otimizada para memória",
+        "(D) Otimizada para computação"
+      ],
+      "answer": "(C) Otimizada para memória",
+      "description": "A AWS oferece uma ampla variedade de instâncias otimizadas para memória, desde instâncias de 8 GiB em instâncias R6g até instâncias com mais memória (U-1) de 24 TiB. Essas instâncias são projetadas especificamente para grandes bancos de dados em memória."
+    },
+    {
+      "id": 32,
+      "question": "Qual das ações a seguir preserva os dados em uma instância do Amazon EC2 que usa um armazenamento de instância como volume raiz?",
+      "options": [
+        "(A) Reinicializar",
+        "(B) Interromper",
+        "(C) Terminar",
+        "(D) Hibernar"
+      ],
+      "answer": "(A) Reinicializar",
+      "description": "A reinicialização simplesmente reinicia o sistema operacional na instância. Os dados no armazenamento de instância permanecem intactos."
+    },
+    {
+      "id": 33,
+      "question": "Qual das opções a seguir são verdadeiras sobre security groups para instâncias do Amazon EC2?",
+      "options": [
+        "(A) Qual das opções a seguir são verdadeiras sobre security groups para instâncias do Amazon EC2?",
+        "(B) Eles oferecem suporte adicionando regras que permitem o tráfego de fontes especificadas",
+        "(C) Eles permitem todo o tráfego de entrada por padrão",
+        "(D) Uma instância do EC2 pode usar apenas um security group"
+      ],
+      "answer": "(B) Eles oferecem suporte adicionando regras que permitem o tráfego de fontes especificadas",
+      "description": "Um grupo de segurança atua como firewall virtual para as instâncias do EC2 visando controlar o tráfego de entrada e de saída. Ao executar a instância, é possível especificar um ou mais grupos de segurança. Se você não especificar um grupo de segurança, o Amazon EC2 usará o grupo de segurança padrão para a VPC."
+    },
+    {
+      "id": 34,
+      "question": "Uma empresa precisa executar um aplicativo tolerante a falhas e que tolere interrupções na AWS. Quais modelo de preço atenderia melhor aos requisitos e permitiria reduzir o custo o máximo possível?",
+      "options": [
+        "(A) Instância on-demand",
+        "(B) Instâncias reservadas",
+        "(C) Instâncias dedicadas",
+        "(D) Instâncias spot"
+      ],
+      "answer": "(D) Instâncias spot",
+      "description": "As instâncias spot do Amazon EC2 permitem aproveitar a capacidade não utilizada do EC2 na Nuvem AWS e estão disponíveis com até 90% de desconto em comparação aos preços sob demanda. É possível usar instâncias spot para diversas aplicações sem estado, tolerantes a falhas ou flexíveis, como: big data, workloads em contêineres, CI/CD, servidores Web, computação de alta performance (HPC) e workloads de teste e de desenvolvimento."
     }
   ]

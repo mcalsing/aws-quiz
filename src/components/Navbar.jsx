@@ -1,11 +1,17 @@
 import React from "react";
 import logo from "/images/logo.png";
+
+
 const Navbar = () => {
   return (
     <header className="h-16 shadow-md flex items-center text-slate-700 bg-slate-300">
-      <nav className="flex justify-between items-center w-9/12 mx-auto">
+      <nav className="flex justify-evenly items-center w-9/12 mx-auto">
         <a href="/">
           Home
+          {/* <img src={logo} alt="logo" /> */}
+        </a>
+        <a href="/about">
+          Sobre
           {/* <img src={logo} alt="logo" /> */}
         </a>
         {/* <div className="flex items-center space-x-5">
