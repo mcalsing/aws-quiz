@@ -16,10 +16,10 @@ const Home = () => {
   };
 
   return (
-    <section className="w-[800px] px-4 mx-auto mt-12 flex bg-slate-300 rounded-md">
+    <section className="w-[800px] px-4 mx-auto mt-8 flex bg-slate-300 rounded-md">
       {loading && <Loading />}
 
-      <div className="w-full space-y-5">
+      <div className="w-full space-y-3">
         <h2 className="lg:text-2xl text-xl text-slate-700 flex justify-center border-b-2 border-gray-400">
           Bem-vindo ao simulado CLF-C02!
         </h2>
@@ -37,6 +37,15 @@ const Home = () => {
           <p className="text-justify text-slate-800">
             Nota: Este projeto de simulado é uma iniciativa independente e não tem afiliação, endosso ou qualquer relação oficial com a Amazon Web Services (AWS). Foi desenvolvido com o objetivo de fornecer recursos educacionais para indivíduos que estão se preparando para o exame AWS Cloud Practitioner (CLF-C02) e não deve ser considerado como substituto dos materiais oficiais de estudo fornecidos pela AWS.
           </p>
+          <h2 className="flex justify-center text-2xl text-slate-700">Desenvolvido por: Marcelo Calsing</h2>
+          <div className="flex gap-4 w-full justify-center">
+            <a href="https://linkedin.com/in/marcelocalsing" target="_blank" className="cursor-pointer">
+              <img src="/images/linkedin.png" alt="logolinkedin" width={30} height={24} className="invert hover:w-8"/>
+            </a>
+            <a href="https://github.com/mcalsing" target="_blank" className="cursor-pointer">
+              <img src="/images/github.png" alt="logogithub" width={30} height={24} className="invert cursor-pointer hover:w-8"/>
+            </a>
+          </div>
       </div>
     </section>
   );
