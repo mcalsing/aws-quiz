@@ -130,7 +130,7 @@ const Quiz = () => {
 
   // Reset states and reload the page
   const restartQuiz = () => {
-    window.location.reload();
+    navigate("/");
   };
 
   return (
