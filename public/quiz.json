@@ -128,7 +128,7 @@
         "(C) As economias podem ser repassadas para os clientes quando mais clientes usam a AWS",
         "(D) As economias podem ser repassadas para os clientes quando a AWS cria mais data centers"
       ],
-      "answer": "(C)  As economias podem ser repassadas para os clientes quando mais clientes usam a AWS",
+      "answer": "(C) As economias podem ser repassadas para os clientes quando mais clientes usam a AWS",
       "description": "Ao usar a computação em nuvem, você pode obter um custo variável menor do que o obtido sozinho. Como o uso de centenas de milhares de clientes é agregado na nuvem, provedores como esse AWS podem obter maiores economias de escala, o que se traduz em preços de pagamento as-you-go mais baixos"
     },
     {
@@ -387,7 +387,7 @@
       "id": 33,
       "question": "Qual das opções a seguir são verdadeiras sobre security groups para instâncias do Amazon EC2?",
       "options": [
-        "(A) Qual das opções a seguir são verdadeiras sobre security groups para instâncias do Amazon EC2?",
+        "(A) Eles oferecem suporte a regras que negam tráfego de fontes especificadas",
         "(B) Eles oferecem suporte adicionando regras que permitem o tráfego de fontes especificadas",
         "(C) Eles permitem todo o tráfego de entrada por padrão",
         "(D) Uma instância do EC2 pode usar apenas um security group"

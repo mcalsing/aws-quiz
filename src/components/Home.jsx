@@ -24,7 +24,7 @@ const Home = () => {
           Bem-vindo ao simulado CLF-C02!
         </h2>
         <p className="text-slate-800 text-justify">
-          Neste projeto, você poderá testar seus conhecimentos e se familiarizar com os tópicos essenciais para o exame AWS Cloud Practitioner. O quiz oferece uma experiência de aprendizado interativa e abrangente, permitindo que você identifique áreas de aprimoramento e se prepare para o exame de forma eficaz (Em desenvolvimento, todos os tópicos ainda não foram implementados).
+          Neste projeto, você poderá testar seus conhecimentos e se familiarizar com os tópicos essenciais para o exame AWS Cloud Practitioner. O quiz oferece uma experiência de aprendizado interativa e abrangente, permitindo que você identifique áreas de aprimoramento e se prepare para o exame de forma eficaz (Em desenvolvimento, todos os tópicos ainda não foram abordados).
         </p>
         <p className="text-slate-800 text-justify"><b>O quiz é composto por 25 perguntas e o tempo para respondê-las é de 35 minutos</b>. Todas as perguntas foram tiradas do programa re/Start da AWS, em parceria com a Escola da Nuvem do qual faço parte. Até o momento (19/06), os KCs utilizados são: 5, 208, 6, 7, 8, 209, 9, 10 e 12. Esses KCs compreendem os conceitos iniciais da Nuvem AWS e os serviços mais comuns. Todas as descrições dos serviços foram retiradas do site da Amazon e do site de documentação.</p>
         <div className="flex justify-center">
