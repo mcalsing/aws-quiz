@@ -255,7 +255,7 @@
       "id": 22,
       "question": "Qual modelo de computação em nuvem exige que a AWS gerencie a segurança da infraestrutura em sua totalidade?",
       "options": [
-        "(A) Contêineres como Serviço (CaaS)",
+        "(A) Contêineres como serviço (CaaS)",
         "(B) Software como serviço (SaaS)",
         "(C) Plataforma como serviço (PaaS)",
         "(D) Infraestrutura como serviço (IaaS)"

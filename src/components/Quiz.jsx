@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const TIMEFORTEST = 2*60;
-const AMOUNTQUESTIONS = 5; 
+const TIMEFORTEST = 35*60;
+const AMOUNTQUESTIONS = 25; 
 
 const Loading = () => (
   <div className="h-[220px] w-[220px] mx-auto mt-8 flex flex-col justify-center items-center border-2 rounded-tr-[50%] rounded-bl-[50%]">
@@ -34,6 +34,7 @@ const Quiz = () => {
   const [isButtonNextDisabled, setIsButtonNextDisabled] = useState(false);
   const [showQuestion, setShowQuestion] = useState(true);
   const [correctAnswers, setCorrectAnswers] = useState({})
+  const [answeredQuestions, setAnsweredQuestions] = useState(0);
 
   useEffect(() => {
     fetch("/quiz.json")
@@ -79,6 +80,7 @@ const Quiz = () => {
   };
 
   const handleNextQuestion = () => {
+    setAnsweredQuestions(answeredQuestions + 1);
     if (currentQuestionIndex < AMOUNTQUESTIONS) {
       /* setIsButtonDisabled(currentQuestionIndex === questions.length - 2); */
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
@@ -134,10 +136,10 @@ const Quiz = () => {
   return (
     <main>
       {showQuestion && (
-        <div className="flex justify-center gap-1 pt-3">
-          <p className="text-x1 text-slate-700">Tempo restante:</p>
-          <h1 className="text-green-700" id="count">
-            {formatTime(timer)}
+        <div className="flex justify-center gap-1 pt-3  text-xl">
+          <p className="text-slate-700">Tempo restante:</p>
+          <h1 className="text-slate-500"  id="count">
+            {formatTime(timer)} - {answeredQuestions}/{AMOUNTQUESTIONS}
           </h1>
         </div>
       )}
@@ -204,7 +206,7 @@ const Quiz = () => {
                 {/* <span className="text-slate-700">/60</span> */}
               </h1>
               <p className="text-sm flex justify-center items-center gap-2">
-                Total Time:{" "}
+                Tempo Total:{" "}
                 <span className="text-xl text-orange-500">
                   {formatTime(TIMEFORTEST - timer)}
                   <span className="text-xs">sec</span>
