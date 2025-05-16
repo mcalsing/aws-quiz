@@ -478,5 +478,5 @@
     ],
     "answer": "(B) Configurar um fluxo de trabalho do AWS Step Functions, onde cada etapa do processamento é uma função Lambda separada.",
     "description": "AWS Step Functions permite dividir o processamento de imagens em etapas independentes e escaláveis, garantindo controle e rastreabilidade do fluxo de trabalho."
-  },
+  }
 ]

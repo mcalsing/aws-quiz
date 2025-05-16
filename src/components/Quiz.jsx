@@ -182,9 +182,6 @@ const Quiz = () => {
                 className="m-3 py-3 px-4 border border-slate-400 rounded"
               >
                 <p className="flex rounded text-xl p-2">
-                  <span className="h-9 w-9 bg-sky-800 flex justify-center items-center text-slate-100 mr-3 p-3 rounded-full">
-                    {questions[currentQuestionIndex].id}
-                  </span>
                   <p className="text-justify">{questions[currentQuestionIndex].question}</p>
                 </p>
                 <div className="grid grid-cols-2 gap-4 mt-5">
