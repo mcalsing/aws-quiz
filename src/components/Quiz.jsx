@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const TIMEFORTEST = 35*60;
 const AMOUNTQUESTIONS = 25; 
@@ -35,15 +35,40 @@ const Quiz = () => {
   const [showQuestion, setShowQuestion] = useState(true);
   const [correctAnswers, setCorrectAnswers] = useState({})
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
+  const [showCurrentAnswer, setShowCurrentAnswer] = useState(false)
 
-  useEffect(() => {
-    fetch("/quiz.json")
+  const location = useLocation();
+  let whichExam = location.state;
+
+  const getCloudPractitionerQuestions = () => {
+    console.log("cloud")
+    fetch("/cloudPractitioner.json")
       .then((response) => response.json())
       .then((data) => {
          data.sort(() => Math.random() - 0.5);
         setQuestions(data);
       })
       .catch((error) => console.error("Error fetching quiz data:", error));
+  }
+
+  const getDeveloperAssociateQuestions = () => {
+    console.log("developer")
+    fetch("/developerAssociate.json")
+      .then((response) => response.json())
+      .then((data) => {
+          data.sort(() => Math.random() - 0.5);
+        setQuestions(data);
+      })
+      .catch((error) => console.error("Error fetching quiz data:", error));
+  }
+
+  useEffect(() => {
+    if (whichExam === "cloudPractitioner") {
+      getCloudPractitionerQuestions()
+    } else {
+      getDeveloperAssociateQuestions()
+    }
+    
   }, []);
 
   useEffect(() => {
@@ -80,6 +105,7 @@ const Quiz = () => {
   };
 
   const handleNextQuestion = () => {
+    setShowCurrentAnswer(false)
     setAnsweredQuestions(answeredQuestions + 1);
     if (currentQuestionIndex < AMOUNTQUESTIONS) {
       /* setIsButtonDisabled(currentQuestionIndex === questions.length - 2); */
@@ -91,6 +117,10 @@ const Quiz = () => {
         setShowResult(true);
       }
     } 
+  }
+
+  const handleShowCurrentAnswer = () => {
+    setShowCurrentAnswer(true)
   }
 
   const handleSubmit = () => {
@@ -147,48 +177,67 @@ const Quiz = () => {
         {/* question section */}
         {showQuestion && (
           <div className="w-full text-slate-700">
-            <div>
-              {questions.length > 0 && (
-                <div key={questions[currentQuestionIndex].id}
-                  className="m-3 py-3 px-4 border border-slate-400 rounded"
-                >
-                  <p className="flex rounded text-xl p-2">
-                    <span className="h-9 w-9 bg-sky-800 flex justify-center items-center text-slate-100 mr-3 p-3 rounded-full">
-                      {questions[currentQuestionIndex].id}
-                    </span>
-                    <p className="text-justify">{questions[currentQuestionIndex].question}</p>
-                  </p>
-                  <div className="grid grid-cols-2 gap-4 mt-5">
-                    {questions[currentQuestionIndex].options.map((option, index) => (
-                      <div
-                        className={`border border-gray-400 rounded p-5 cursor-pointer hover:bg-sky-800 hover:text-slate-400 
-                          ${answers[questions[currentQuestionIndex].id] === option ? "bg-sky-800 text-slate-100" : ""}`}
-                        key={option}
-                        onClick={() => handleAnswerSelect(questions[currentQuestionIndex].id, option)}
-                      >
-                        <p>{option}</p>
-                      </div>
-                    ))}
-                  </div>
+            {questions.length > 0 && (
+              <div key={questions[currentQuestionIndex].id}
+                className="m-3 py-3 px-4 border border-slate-400 rounded"
+              >
+                <p className="flex rounded text-xl p-2">
+                  <span className="h-9 w-9 bg-sky-800 flex justify-center items-center text-slate-100 mr-3 p-3 rounded-full">
+                    {questions[currentQuestionIndex].id}
+                  </span>
+                  <p className="text-justify">{questions[currentQuestionIndex].question}</p>
+                </p>
+                <div className="grid grid-cols-2 gap-4 mt-5">
+                  {questions[currentQuestionIndex].options.map((option, index) => (
+                    <div
+                      className={`border border-gray-400 rounded p-5 cursor-pointer hover:bg-sky-800 hover:text-slate-400 
+                        ${answers[questions[currentQuestionIndex].id] === option ? "bg-sky-800 text-slate-100" : ""}`}
+                      key={option}
+                      onClick={() => handleAnswerSelect(questions[currentQuestionIndex].id, option)}
+                    >
+                      <p>{option}</p>
+                    </div>
+                  ))}
                 </div>
-              )}
-              <button
-                onClick={handleNextQuestion}
-                disabled={isButtonNextDisabled}
-                className={`${isButtonNextDisabled ? "text-slate-400" : "text-slate-100"} bg-sky-800 px-6 py-2 m-3 rounded`}
-              >
-                Próxima Pergunta
-              </button>
-              <button
-                onClick={handleSubmit}
-                disabled={!isButtonNextDisabled}
-                className={`${!isButtonNextDisabled ? "text-slate-400" : "text-slate-100"} text-slate-100 bg-sky-800 px-16 py-2 m-3 rounded`}
-              >
-                Submit
-              </button>
-            </div>
+              </div>
+            )}
+            <button
+              onClick={handleShowCurrentAnswer}
+              disabled={isButtonNextDisabled}
+              className={`${isButtonNextDisabled ? "text-slate-400" : "text-slate-100"} bg-sky-800 px-6 py-2 m-3 rounded`}
+            >
+              Mostrar resposta
+            </button>
+            <button
+              onClick={handleNextQuestion}
+              disabled={isButtonNextDisabled}
+              className={`${isButtonNextDisabled ? "text-slate-400" : "text-slate-100"} bg-sky-800 px-6 py-2 m-3 rounded`}
+            >
+              Próxima Pergunta
+            </button>
+            <button
+              onClick={handleSubmit}
+              disabled={!isButtonNextDisabled}
+              className={`${!isButtonNextDisabled ? "text-slate-400" : "text-slate-100"} text-slate-100 bg-sky-800 px-16 py-2 m-3 rounded`}
+            >
+              Submit
+            </button>
+            {showCurrentAnswer && (
+              <section className="flex flex-col gap-5 px-3">
+                <div>
+                  <p className="font-bold">Resposta correta: </p>
+                  {questions[currentQuestionIndex].answer}
+                </div>
+
+                <div>
+                  <p className="font-bold">Feedback:</p>
+                  {questions[currentQuestionIndex].description}
+                </div>
+              </section>
+            )}
           </div>
         )}
+
         {/* answer  section*/}
         {showResult && (
           <div className="text-slate-700">

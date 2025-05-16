@@ -7,10 +7,10 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleStateQuiz = () => {
+  const handleStateQuiz = (whichExam) => {
     setLoading(true);
     setTimeout(() => {
-      navigate("/quiz");
+      navigate("/quiz", {state: whichExam});
       setLoading(false);
     }, 1000);
   };
@@ -27,12 +27,18 @@ const Home = () => {
           Neste projeto, você poderá testar seus conhecimentos e se familiarizar com os tópicos essenciais para o exame AWS Cloud Practitioner. O quiz oferece uma experiência de aprendizado interativa e abrangente, permitindo que você identifique áreas de aprimoramento e se prepare para o exame de forma eficaz (Em desenvolvimento, todos os tópicos ainda não foram abordados).
         </p>
         <p className="text-slate-800 text-justify"><b>O quiz é composto por 25 perguntas e o tempo para respondê-las é de 35 minutos</b>. Todas as perguntas foram retiradas da plataforma de aprendizado re/Start da AWS, em parceria com a Escola da Nuvem do qual faço parte. Até o momento (19/06), os KCs utilizados foram: 5, 208, 6, 7, 8, 209, 9, 10 e 12. Esses KCs compreendem os conceitos iniciais da Nuvem AWS e os serviços mais comuns. Todas as descrições dos serviços foram retiradas do site da Amazon e do site de documentação.</p>
-        <div className="flex justify-center">
+        <div className="flex justify-center gap-10">
           <button
-            onClick={handleStateQuiz}
+            onClick={() => handleStateQuiz("cloudPractitioner")}
             className="bg-sky-800 px-6 py-2 text-white rounded w-40"
           >
-            Começar Quiz
+            Cloud Practitioner
+          </button>
+          <button
+            onClick={() => handleStateQuiz("developerAssociate")}
+            className="bg-sky-800 px-6 py-2 text-white rounded w-40"
+          >
+            Developer Associate
           </button>
         </div>
         <p className="text-slate-800 text-justify">
