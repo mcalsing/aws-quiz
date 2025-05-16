@@ -1,410 +1,482 @@
 [
+  {
+    "id": 1,
+    "question": "Qual é a principal vantagem de utilizar ferramentas de infraestrutura como código (IaC) como CloudFormation, AWS SAM e AWS CDK na criação e manutenção de ambientes de desenvolvimento e testes?",
+    "options": [
+      "(A) Permitem a criação de ambientes manualmente, sem depender de scripts automatizados.",
+      "(B) Automatizam a criação e configuração dos ambientes, garantindo consistência e facilitando o rollback em caso de erros.",
+      "(C) Exigem intervenção manual a cada alteração, aumentando a segurança dos deploys.",
+      "(D) Fornece recursos para gerenciar apenas dados"
+    ],
+    "answer": "(B) Automatizam a criação e configuração dos ambientes, garantindo consistência e facilitando o rollback em caso de erros.",
+    "description": "Utilizar ferramentas de infraestrutura como código (IaC) como CloudFormation, AWS SAM e AWS CDK permite automatizar a criação e a configuração dos ambientes de desenvolvimento e teste, garantindo que eles sejam consistentes, replicáveis e versionados. Essa automação facilita o rollback em caso de erros e reduz significativamente os erros manuais durante o provisionamento dos recursos."
+  },
+  {
+    "id": 2,
+    "question": "Qual é a principal vantagem de utilizar métricas customizadas em conjunto com o Amazon CloudWatch para monitorar a performance de uma aplicação?",
+    "options": [
+      "(A) Impede que os dados de performance sejam integrados em dashboards, aumentando a segurança.",
+      "(B) Facilita a criação de indicadores específicos que refletem aspectos críticos da aplicação, possibilitando a configuração de alarmes e dashboards customizados.",
+      "(C) Permite que todas as métricas sejam coletadas automaticamente sem nenhuma configuração adicional.",
+      "(D) Substitui completamente a necessidade de utilizar métricas padrão fornecidas pelos serviços AWS."
+    ],
+    "answer": "(B) Facilita a criação de indicadores específicos que refletem aspectos críticos da aplicação, possibilitando a configuração de alarmes e dashboards customizados.",
+    "description": "Utilizar métricas customizadas permite que você crie indicadores específicos que refletem o comportamento único da sua aplicação. Isso possibilita configurar alarmes e dashboards que monitoram aspectos críticos da performance, facilitando a identificação de gargalos e a tomada de decisões proativas para otimizar o sistema."
+  },
+  {
+    "id": 3,
+    "question": "Em uma aplicação distribuída, é fundamental proteger os dados tanto enquanto armazenados quanto durante sua transmissão. Qual das seguintes alternativas melhor descreve uma característica exclusiva da criptografia em trânsito?",
+    "options": [
+      "(A) Os dados são cifrados antes de serem gravados em discos ou bancos de dados, protegendo os contra acesso físico indevido.",
+      "(B) Requer o gerenciamento rigoroso das chaves para evitar impacto na performance dos sistemas.",
+      "(C) Os dados são cifrados enquanto são transmitidos pela rede, garantindo que não sejam interceptados ou adulterados.",
+      "(D) Utiliza chaves gerenciadas para manter a confidencialidade dos dados armazenados em sistemas de armazenamento."
+    ],
+    "answer": "(C) Os dados são cifrados enquanto são transmitidos pela rede, garantindo que não sejam interceptados ou adulterados.",
+    "description": "A criptografia em trânsito protege os dados enquanto eles estão sendo transmitidos pela rede, utilizando protocolos como TLS/SSL para cifrá-los. Isso garante que as informações não sejam interceptadas ou adulteradas durante a comunicação. As demais alternativas referem-se a características da criptografia em repouso ou não abordam especificamente a proteção durante a transmissão."
+  },
+  {
+    "id": 4,
+    "question": "Em um ambiente onde as configurações e os segredos da aplicação precisam ser atualizados sem a necessidade de realizar um novo deploy, qual das alternativas apresenta a principal vantagem de utilizar o AWS AppConfig e o AWS Secrets Manager?",
+    "options": [
+      "(A) Eliminam a necessidade de versionamento, pois as configurações não sofrem alterações ao longo do tempo.",
+      "(B) Asseguram que todas as configurações e segredos sejam codificados diretamente no código-fonte para maior segurança.",
+      "(C) Fornecem armazenamento não criptografado para facilitar o acesso rápido aos dados.",
+      "(D) Permitem a atualização dinâmica das configurações e a rotação automática dos segredos, garantindo agilidade e segurança sem interrupções."
+    ],
+    "answer": "(D) Permitem a atualização dinâmica das configurações e a rotação automática dos segredos, garantindo agilidade e segurança sem interrupções.",
+    "description": "A principal vantagem de utilizar o AWS AppConfig e o AWS Secrets Manager é que eles permitem a atualização dinâmica das configurações e a rotação automática dos segredos, sem a necessidade de redeploy da aplicação. Isso garante que as mudanças possam ser implementadas rapidamente e de forma segura, mantendo o ambiente ágil e protegido."
+  },
+  {
+    "id": 5,
+    "question": "Qual das alternativas a seguir descreve melhor a vantagem do logging estruturado em comparação ao logging em texto livre?",
+    "options": [
+      "(A) Organiza os logs em um formato padronizado (por exemplo, JSON), facilitando a análise automatizada, a filtragem e a criação de dashboards customizados.",
+      "(B) Permite que os logs sejam gerados em formato livre, facilitando a leitura manual.",
+      "(C) Garante que os logs sejam armazenados sem qualquer formatação, reduzindo o tamanho dos arquivos",
+      "(D) Impede a integração com ferramentas de monitoramento, centralizando os dados somente localmente."
+    ],
+    "answer": "(A) Organiza os logs em um formato padronizado (por exemplo, JSON), facilitando a análise automatizada, a filtragem e a criação de dashboards customizados.",
+    "description": "O logging estruturado organiza os registros em um formato padronizado, como JSON, o que facilita a análise automatizada. Essa abordagem permite filtrar, pesquisar e correlacionar logs com mais precisão, além de possibilitar a criação de dashboards customizados e alertas proativos. Essa padronização é fundamental para detectar rapidamente anomalias e diagnosticar problemas."
+  },
+  {
+    "id": 6,
+    "question": "Para garantir um deploy consistente e ágil de uma função Lambda e de aplicações containerizadas, qual abordagem é a mais recomendada?",
+    "options": [
+      "(A) Ignorar o versionamento e a integração contínua, focando apenas no deploy manual.",
+      "(B) Manter as dependências instaladas manualmente em cada ambiente de deploy, sem uso de ferramentas de automação.",
+      "(C) Utilizar Layers para separar bibliotecas comuns no Lambda e empacotar o código juntamente com scripts de automação integrados ao repositório de código.",
+      "(D) Empacotar o código e as dependências em um único arquivo grande, sem separar bibliotecas comuns."
+    ],
+    "answer": "(C) Utilizar Layers para separar bibliotecas comuns no Lambda e empacotar o código juntamente com scripts de automação integrados ao repositório de código.",
+    "description": "Utilizar Layers para separar as bibliotecas comuns em funções Lambda e empacotar o código junto com scripts de automação integrados ao repositório de código é a abordagem recomendada. Essa prática reduz o tamanho dos pacotes de deploy, facilita a manutenção e garante consistência entre os ambientes, permitindo deploys rápidos e confiáveis."
+  },
+  {
+    "id": 7,
+    "question": "Qual das seguintes práticas é essencial ao utilizar o AWS KMS para proteger dados em repouso em um ambiente AWS?",
+    "options": [
+      "(A) Utilizar chaves assimétricas para criptografar os dados, pois oferecem maior segurança.",
+      "(B) Confiar apenas na criptografia em trânsito, dispensando a necessidade de cifrar os dados armazenados.",
+      "(C) Armazenar as chaves de criptografia diretamente no código da aplicação para facilitar o acesso.",
+      "(D) Criar chaves gerenciadas pelo cliente e configurar políticas de acesso rigorosas para limitar o uso indevido."
+    ],
+    "answer": "(D) Criar chaves gerenciadas pelo cliente e configurar políticas de acesso rigorosas para limitar o uso indevido.",
+    "description": "Utilizar o AWS KMS para criar chaves gerenciadas pelo cliente e configurar políticas de acesso rigorosas é essencial para proteger os dados em repouso. Essa prática garante que apenas identidades autorizadas possam acessar as chaves e, consequentemente, os dados cifrados, reforçando o princípio do menor privilégio e a segurança geral do ambiente."
+  },
+  {
+    "id": 8,
+    "question": "Em um processo de sanitização de dados, qual prática é correta para proteger informações sensíveis antes do armazenamento?",
+    "options": [
+      "(A) Armazenar os dados sensíveis sem qualquer modificação para manter a integridade original.",
+      "(B) Transferir dados sensíveis sem criptografia para reduzir a complexidade do sistema.",
+      "(C) Aplicar técnicas de mascaramento ou exclusão seletiva em dados como CPF e senhas, protegendo-os contra acessos indevidos.",
+      "(D) Exibir todas as informações sensíveis em logs para facilitar o debugging."
+    ],
+    "answer": "(C) Aplicar técnicas de mascaramento ou exclusão seletiva em dados como CPF e senhas, protegendo-os contra acessos indevidos.",
+    "description": "Aplicar técnicas de mascaramento ou exclusão seletiva em dados sensíveis é fundamental para proteger informações como CPF e senhas. A sanitização dos dados impede que informações críticas sejam expostas ou mal utilizadas, mantendo a conformidade com normas de privacidade e segurança. Essa prática assegura que, mesmo que os dados sejam acessados de forma indevida, as informações sensíveis estarão protegidas."
+  },
+  {
+    "id": 9,
+    "question": "Qual das seguintes alternativas melhor descreve uma vantagem do uso do AWS Secrets Manager para gerenciamento de segredos?",
+    "options": [
+      "(A) Suporta a rotação automática dos segredos e permite definir políticas de acesso rigorosas, evitando a exposição de credenciais sensíveis.",
+      "(B) Exige que os segredos sejam embutidos diretamente no código da aplicação para acesso rápido.",
+      "(C) Não integra com outros serviços da AWS, o que isola os segredos de outras operações.",
+      "(D) Permite armazenar segredos de forma não criptografada, facilitando o acesso imediato."
+    ],
+    "answer": "(A) Suporta a rotação automática dos segredos e permite definir políticas de acesso rigorosas, evitando a exposição de credenciais sensíveis.",
+    "description": "O AWS Secrets Manager permite que os segredos sejam armazenados de forma criptografada, com suporte à rotação automática e à definição de políticas de acesso detalhadas. Isso elimina a necessidade de embutir credenciais diretamente no código, diminuindo os riscos de exposição e aumentando a segurança. Essa abordagem centralizada e automatizada é crucial para a proteção de informações sensíveis."
+  },
+  {
+    "id": 10,
+    "question": "Para garantir a qualidade e confiabilidade de uma aplicação antes do deploy em produção, qual a principal vantagem de configurar múltiplos stages (como dev, test e prod) em um pipeline de CI/CD?",
+    "options": [
+      "(A) Permite que todas as alterações sejam diretamente aplicadas ao ambiente de produção sem testes prévios.",
+      "(B) Requer que os ambientes de teste sejam configurados manualmente, o que aumenta a flexibilidade.",
+      "(C) Garante que as alterações sejam validadas em ambientes isolados, possibilitando a identificação e correção de erros antes da promoção para produção.",
+      "(D) Impede a automação do processo de deploy, assegurando que todas as mudanças sejam feitas manualmente."
+    ],
+    "answer": "(C) Garante que as alterações sejam validadas em ambientes isolados, possibilitando a identificação e correção de erros antes da promoção para produção.",
+    "description": "Configurar múltiplos stages (desenvolvimento, teste e produção) em um pipeline de CI/CD permite validar alterações em ambientes isolados antes que sejam promovidas para produção. Essa prática possibilita identificar e corrigir erros em uma fase inicial, reduzindo o risco de interrupções no ambiente de produção e aumentando a confiabilidade do sistema."
+  },
+  {
+    "id": 11,
+    "question": "Para reduzir o tamanho do pacote de implantação e melhorar o tempo de carregamento de uma função Lambda, qual abordagem é a mais indicada para gerenciar dependências, como bibliotecas externas?",
+    "options": [
+      "(A) Criar uma Layer contendo as bibliotecas e anexá-la à função Lambda.",
+      "(B) Realizar o download das bibliotecas durante a execução da função.",
+      "(C) Armazenar as bibliotecas em um bucket S3 e referenciá-las via URL durante a execução.",
+      "(D) Incluir todas as bibliotecas necessárias diretamente no pacote de implantação da função."
+    ],
+    "answer": "(A) Criar uma Layer contendo as bibliotecas e anexá-la à função Lambda.",
+    "description": "Criar uma Layer para incluir as bibliotecas necessárias permite separar as dependências do código principal da função Lambda, reduzindo o tamanho do pacote de implantação e melhorando o tempo de carregamento. Essa abordagem promove a reutilização das bibliotecas entre diferentes funções e simplifica a manutenção, pois as atualizações podem ser realizadas de forma independente do código da função."
+  },
+  {
+    "id": 12,
+    "question": "Ao utilizar a biblioteca Boto3 para interagir com os serviços AWS, qual das seguintes práticas é fundamental para garantir que as operações sejam realizadas de forma segura e consistente?",
+    "options": [
+      "(A) Depender apenas das configurações padrão, sem especificar a região.",
+      "(B) Ignorar o tratamento de exceções para simplificar o fluxo da aplicação.",
+      "(C) Codificar as credenciais diretamente no código para facilitar o acesso.",
+      "(D) Configurar a sessão especificando explicitamente a região e as credenciais apropriadas."
+    ],
+    "answer": "(D) Configurar a sessão especificando explicitamente a região e as credenciais apropriadas.",
+    "description": "Configurar a sessão especificando explicitamente a região e as credenciais é essencial para que as operações com o Boto3 sejam autenticadas e direcionadas aos recursos corretos, garantindo assim segurança e consistência na comunicação com os serviços AWS."
+  },
+  {
+    "id": 13,
+    "question": "Para garantir que uma operação de escrita no Amazon DynamoDB seja idempotente e evite a inserção de dados duplicados em cenários de retries, qual abordagem é recomendada?",
+    "options": [
+      "(A) Reexecutar a operação sem capturar exceções relacionadas à duplicação.",
+      "(B) Utilizar a condição 'attribute_not_exists' na operação put_item.",
+      "(C) Ignorar o uso de chaves de idempotência, confiando na lógica do cliente.",
+      "(D) Remover quaisquer condições na operação para acelerar a execução."
+    ],
+    "answer": "(B) Utilizar a condição 'attribute_not_exists' na operação put_item.",
+    "description": "Utilizar a condição 'attribute_not_exists' na operação put_item do DynamoDB é a abordagem recomendada para implementar idempotência. Dessa forma, a operação só ocorrerá se o item ainda não existir, prevenindo a duplicação de dados mesmo em cenários de retries."
+  },
+  {
+    "id": 14,
+    "question": "Para otimizar os custos e a performance no armazenamento de dados, qual das estratégias abaixo é recomendada para o Amazon S3?",
+    "options": [
+      "(A) Armazenar todos os objetos na classe S3 Standard para garantir acesso imediato.",
+      "(B) Atualizar manualmente cada objeto para uma classe de armazenamento mais barata sempre que houver mudanças.",
+      "(C) Desativar o versionamento de objetos para reduzir a complexidade do gerenciamento.",
+      "(D) Configurar políticas de lifecycle para mover automaticamente objetos para classes de armazenamento mais econômicas, como S3 Glacier, após um período determinado."
+    ],
+    "answer": "(D) Configurar políticas de lifecycle para mover automaticamente objetos para classes de armazenamento mais econômicas, como S3 Glacier, após um período determinado.",
+    "description": "Configurar políticas de lifecycle no Amazon S3 para mover objetos automaticamente para classes de armazenamento mais econômicas (como S3 Glacier) após um período determinado é uma estratégia recomendada para reduzir os custos de armazenamento sem comprometer o acesso aos dados. Essa prática, quando combinada com estratégias de caching para dados frequentemente acessados (como o uso do ElastiCache), otimiza a performance e gerencia o ciclo de vida dos dados de forma eficiente."
+  },
+  {
+    "id": 15,
+    "question": "Em um cenário de processamento de mensagens com Amazon SQS, a aplicação frequentemente recebe mensagens que não podem ser processadas com sucesso devido a erros temporários. Qual abordagem é recomendada para lidar com essas mensagens sem interromper o fluxo principal de processamento?",
+    "options": [
+      "(A) Bloquear o processamento de todas as mensagens se uma única mensagem falhar.",
+      "(B) Redirecionar as mensagens que falharam para uma Dead-Letter Queue (DLQ) para análise posterior.",
+      "(C) Ignorar as mensagens com erros e seguir com o processamento.",
+      "(D) Reenviar as mensagens repetidamente na mesma fila até serem processadas com sucesso."
+    ],
+    "answer": "(B) Redirecionar as mensagens que falharam para uma Dead-Letter Queue (DLQ) para análise posterior.",
+    "description": "Redirecionar as mensagens que falharam para uma Dead-Letter Queue (DLQ) é a abordagem mais adequada, pois permite isolar mensagens problemáticas sem interromper o processamento das demais. Assim, é possível analisar e reprocessar essas mensagens posteriormente, mantendo a continuidade do fluxo principal e evitando que erros recorrentes afetem o sistema como um todo."
+  },
+  {
+    "id": 16,
+    "question": "Para reduzir a latência associada ao cold start em funções Lambda que se conectam a bancos de dados, qual das abordagens abaixo é considerada uma prática recomendada?",
+    "options": [
+      "(A) Estabelecer a conexão com o banco de dados somente após confirmar que a função está 'quente'.",
+      "(B) Inicializar a conexão com o banco de dados dentro do handler a cada invocação.",
+      "(C) Inicializar a conexão com o banco de dados fora do handler, permitindo a reutilização em invocações subsequentes.",
+      "(D) Fechar imediatamente a conexão após cada operação para evitar riscos de segurança"
+    ],
+    "answer": "(C) Inicializar a conexão com o banco de dados fora do handler, permitindo a reutilização em invocações subsequentes.",
+    "description": "Inicializar a conexão com o banco de dados fora do handler permite que a conexão seja estabelecida apenas uma vez durante o cold start e, em seguida, reutilizada em invocações subsequentes enquanto o ambiente Lambda estiver 'quente'. Essa prática reduz significativamente a latência, evitando a sobrecarga de criar uma nova conexão a cada chamada."
+  },
+  {
+    "id": 17,
+    "question": "Uma aplicação que realiza chamadas a um serviço de terceiros enfrenta falhas intermitentes. Para mitigar os efeitos dessas falhas e evitar a sobrecarga do serviço, qual abordagem é a mais recomendada para implementar o retry?",
+    "options": [
+      "(A) Realizar retries imediatos sem delay, até que a operação tenha sucesso.",
+      "(B) Implementar retries com exponential backoff e adicionar jitter para distribuir as tentativas.",
+      "(C) Implementar um delay fixo entre tentativas, sem variação.",
+      "(D) Parar de tentar após a primeira falha e notificar o usuário imediatamente."
+    ],
+    "answer": "(B) Implementar retries com exponential backoff e adicionar jitter para distribuir as tentativas.",
+    "description": "Implementar retries com exponential backoff e adicionar jitter é a abordagem recomendada, pois ela aumenta progressivamente o intervalo entre as tentativas (por exemplo, 1s, 2s, 4s, etc.) e inclui um fator aleatório (jitter) para distribuir as requisições. Dessa forma, evita-se que múltiplas requisições sejam disparadas simultaneamente, reduzindo o risco de sobrecarga e promovendo uma recuperação mais suave em caso de falhas temporárias."
+  },
+  {
+    "id": 18,
+    "question": "Para uma aplicação que exige alta escalabilidade e baixa latência, qual das seguintes características é mais típica de bancos NoSQL, como o Amazon DynamoDB, em comparação aos bancos relacionais (RDS, Aurora)?",
+    "options": [
+      "(A) Alta escalabilidade horizontal, flexibilidade de esquema e, por padrão, consistência eventual.",
+      "(B) Necessidade de manutenção manual de infraestrutura para escalabilidade.",
+      "(C) Estrutura de dados rigidamente definida com esquemas preestabelecidos.",
+      "(D) Suporte robusto a transações ACID e operações complexas de joins."
+    ],
+    "answer": "(A) Alta escalabilidade horizontal, flexibilidade de esquema e, por padrão, consistência eventual.",
+    "description": "Bancos NoSQL, como o Amazon DynamoDB, são projetados para oferecer alta escalabilidade horizontal e baixa latência, com uma flexibilidade de esquema que permite adaptações rápidas às mudanças dos dados. Por padrão, utilizam consistência eventual, a qual pode ser ajustada para consistência forte quando necessário. Em contrapartida, bancos relacionais oferecem suporte a transações ACID e esquemas definidos, mas podem enfrentar desafios de escalabilidade horizontal."
+  },
+  {
+    "id": 19,
+    "question": "Para garantir que alterações no código da função Lambda não impactem o ambiente de produção e possibilitem um rollback rápido em caso de falhas, qual abordagem é a mais adequada?",
+    "options": [
+      "(A) Alterar diretamente o código da função em produção sem utilizar versionamento.",
+      "(B) Utilizar um único deploy sem gerenciamento de versões, confiando apenas em testes manuais.",
+      "(C) Publicar versões imutáveis da função e criar aliases que apontem para a versão estável, integrando o API Gateway via variáveis de estágio.",
+      "(D) Manter múltiplas funções Lambda para cada ambiente sem o uso de aliases ou variáveis e estágio."
+    ],
+    "answer": "(C) Publicar versões imutáveis da função e criar aliases que apontem para a versão estável, integrando o API Gateway via variáveis de estágio.",
+    "description": "Publicar versões imutáveis da função Lambda e criar aliases que apontem para a versão estável é a abordagem recomendada para evitar que alterações não testadas impactem o ambiente de produção. Essa prática permite que o API Gateway utilize variáveis de estágio para direcionar o tráfego à versão correta, facilitando o rollback caso haja problemas com a nova versão."
+  },
+  {
+    "id": 20,
+    "question": "Ao projetar uma API segura, escalável e de fácil manutenção, qual das seguintes práticas NÃO é recomendada?",
+    "options": [
+      "(A) Permitir que o backend retorne mensagens de erro sem realizar qualquer validação ou transformação dos dados.",
+      "(B) Transformar e padronizar os dados das requisições e respostas para garantir consistência na comunicação.",
+      "(C) Validar rigorosamente o payload recebido para assegurar que os dados necessários estejam presentes.",
+      "(D) Sobrescrever os códigos de status HTTP com mensagens de erro claras e informativas."
+    ],
+    "answer": "(A) Permitir que o backend retorne mensagens de erro sem realizar qualquer validação ou transformação dos dados.",
+    "description": "Permitir que o backend retorne mensagens de erro sem realizar qualquer validação ou transformação dos dados não é uma prática recomendada. As boas práticas de APIs enfatizam a importância de validar o payload, transformar os dados para manter a consistência e sobrescrever os códigos de status HTTP para fornecer mensagens de erro claras, facilitando o diagnóstico e a manutenção."
+  },
+  {
+    "id": 21,
+    "question": "Uma organização precisa que os logs armazenados no Amazon CloudWatch Logs sejam criptografados em repouso utilizando uma chave simétrica gerenciada pelo cliente no AWS Key Management Service (KMS). Ao verificar o ambiente, o desenvolvedor identifica que o grupo de logs atual não está configurado para usar essa chave. Qual ação deve ser realizada para atender a esse requisito?",
+    "options": [
+      "(A) Atualizar a política de IAM do grupo de logs para especificar a chave simétrica, sem alterar sua configuração.",
+      "(B) Excluir o grupo de logs atual, criar um novo grupo através do console da AWS e associar uma chave assimétrica gerenciada pelo cliente.",
+      "(C) Modificar o grupo de logs existente utilizando a AWS CLI, criando e associando uma chave simétrica gerenciada pelo cliente.",
+      "(D) Contêineres como Serviço (CaaS)"
+    ],
+    "answer": "(C) Modificar o grupo de logs existente utilizando a AWS CLI, criando e associando uma chave simétrica gerenciada pelo cliente.",
+    "description": "Modificar o grupo de logs existente via AWS CLI permite associar uma chave simétrica gerenciada pelo cliente do AWS KMS ao grupo, atendendo ao requisito de criptografia em repouso. Essa ação configura corretamente o CloudWatch Logs para usar a chave adequada sem a necessidade de recriar o grupo."
+  },
+  {
+    "id": 22,
+    "question": "Uma empresa deseja garantir que usuários autenticados via Amazon Cognito acessem somente os objetos do Amazon S3 correspondentes ao seu departamento. Para isso, cada usuário possui um atributo customizado department e os objetos do S3 estão etiquetados com a tag s3:ExistingObjectTag/department. Qual é a abordagem mais adequada para implementar essa restrição?",
+    "options": [
+      "(A) Criar diferentes grupos de usuários no Cognito para cada departamento e associar roles do IAM específicas a cada grupo.",
+      "(B) Definir regras de bucket no S3 que restringem o acesso com base em prefixos relacionados aos departamentos.",
+      "(C) Implementar uma função Lambda para filtrar os acessos aos objetos do S3 de acordo com o atributo department do usuário.",
+      "(D) Configurar perfis do IAM no pool de identidades do Cognito com políticas que comparem a tag do objeto com o atributo do usuário, utilizando a condição:'s3:ExistingObjectTag/department': '$aws:PrincipalTag/department'."
+    ],
+    "answer": "(D) Configurar perfis do IAM no pool de identidades do Cognito com políticas que comparem a tag do objeto com o atributo do usuário, utilizando a condição:'s3:ExistingObjectTag/department': '$aws:PrincipalTag/department'.",
+    "description": "A abordagem correta consiste em configurar perfis do IAM no pool de identidades do Amazon Cognito, de forma que a política associada compare a tag s3:ExistingObjectTag/department do objeto com o atributo department do usuário (representado por $aws:PrincipalTag/department). Dessa forma, o acesso é permitido apenas quando os valores coincidirem, garantindo o controle de acesso por departamento."
+  },
+  {
+    "id": 23,
+    "question": "Um desenvolvedor está criando uma aplicação que processa eventos enviados por uploads de arquivos no Amazon S3. Ele deseja que a aplicação seja altamente escalável, sem a necessidade de gerenciar servidores, e que o código seja executado automaticamente sempre que um novo arquivo for enviado ao bucket. Qual solução da AWS é mais apropriada para esse caso?",
+    "options": [
+      "(A) Usar o Amazon CloudWatch para criar alarmes que executem scripts de processamento sempre que o uso do bucket aumentar.",
+      "(B) Implantar uma aplicação Flask em um ambiente Elastic Beanstalk configurado para verificar o bucket periodicamente.",
+      "(C) Criar uma instância EC2 com script Python que monitore o bucket e execute o processamento quando um arquivo for detectado.",
+      "(D) Utilizar o AWS Lambda, configurando uma trigger para que a função seja executada automaticamente em resposta aos eventos do S3."
+    ],
+    "answer": "(D) Utilizar o AWS Lambda, configurando uma trigger para que a função seja executada automaticamente em resposta aos eventos do S3.",
+    "description": "O AWS Lambda é ideal para executar código em resposta a eventos, como uploads em um bucket S3. Ao configurar uma trigger, a função Lambda é invocada automaticamente, sem necessidade de gerenciar infraestrutura, garantindo escalabilidade e economia."
+  },
+  {
+    "id": 24,
+    "question": "Um desenvolvedor quer implantar rapidamente uma aplicação web em Python na AWS, sem se preocupar com a configuração de servidores, load balancer ou auto scaling. Qual serviço da AWS permite essa implantação simplificada com gerenciamento automatizado de infraestrutura?",
+    "options": [
+      "(A) AWS CloudFormation, para definir toda a infraestrutura como código.",
+      "(B) AWS Elastic Beanstalk, que automatiza o provisionamento e o deploy da aplicação.",
+      "(C) Amazon EC2, com configuração manual de instâncias e escalabilidade.",
+      "(D) AWS Lambda, para executar funções sem gerenciar servidores."
+    ],
+    "answer": "(B) AWS Elastic Beanstalk, que automatiza o provisionamento e o deploy da aplicação.",
+    "description": "O AWS Elastic Beanstalk é ideal para implantações rápidas, pois cuida automaticamente da criação e gerenciamento de recursos como EC2, load balancers e escalabilidade, permitindo que o desenvolvedor foque no código."
+  },
+  {
+    "id": 25,
+    "question": "Uma equipe está migrando uma aplicação monolítica para uma arquitetura baseada em microservices. Como parte da reestruturação, cada funcionalidade será isolada em um serviço independente, com comunicação entre eles feita via Amazon SQS. Qual é uma das principais vantagens dessa abordagem?",
+    "options": [
+      "(A) Permite que cada serviço seja escalado e atualizado de forma independente, melhorando a flexibilidade.",
+      "(B) Reduz o custo total da aplicação ao consolidar todos os serviços em um único ponto de entrada.",
+      "(C) Garante que todos os serviços compartilhem o mesmo banco de dados e dependências.",
+      "(D) Centraliza o controle de erros e logs em uma única instância, facilitando o debug."
+    ],
+    "answer": "(A) Permite que cada serviço seja escalado e atualizado de forma independente, melhorando a flexibilidade.",
+    "description": "Uma das maiores vantagens dos microservices é a possibilidade de escalar e atualizar cada serviço de forma independente. Isso aumenta a flexibilidade do sistema, facilita o deploy contínuo e reduz o risco de impactos em outras partes da aplicação."
+  },
+  {
+    "id": 26,
+    "question": "Uma equipe deseja expor uma API REST que permita registrar pedidos e acione uma função Lambda para processá-los. Eles decidem usar o Amazon API Gateway com integração aws_proxy. Qual das opções abaixo representa uma vantagem dessa abordagem?  ",
+    "options": [
+      "(A) Remove a necessidade de autenticação e gerenciamento de tráfego.",
+      "(B) Permite executar a função Lambda localmente sem precisar configurar endpoints.",
+      "(C) Facilita o roteamento direto da requisição ao Lambda com mínima configuração.",
+      "(D) Garante que a API seja executada apenas em ambientes locais, sem exposição externa."
+    ],
+    "answer": "(C) Facilita o roteamento direto da requisição ao Lambda com mínima configuração.",
+    "description": "Ao usar integração aws_proxy, o API Gateway encaminha a requisição diretamente para a função Lambda, repassando o payload completo e simplificando a configuração da integração."
+  },
+  {
+    "id": 27,
+    "question": "Uma aplicação envia confirmações de pedido para os usuários por e-mail. Para melhorar a escalabilidade e a experiência do usuário, a equipe decide publicar uma mensagem em uma fila Amazon SQS em vez de enviar o e-mail diretamente após a compra. Qual é a vantagem de usar essa abordagem assíncrona?",
+    "options": [
+      "(A) Reduz a necessidade de monitoramento e logging do sistema.",
+      "(B) Permite desacoplar o processamento da confirmação e melhorar a escalabilidade.",
+      "(C) Garante que o e-mail será entregue antes da confirmação da compra.",
+      "(D) Elimina a necessidade de autenticação e segurança no envio de mensagens."
+    ],
+    "answer": "(B) Permite desacoplar o processamento da confirmação e melhorar a escalabilidade.",
+    "description": "Ao usar uma fila SQS, o sistema pode continuar seu fluxo principal sem esperar que o e-mail seja enviado. Isso desacopla os componentes, melhora a escalabilidade e permite tratar falhas de envio separadamente."
+  },
+  {
+    "id": 28,
+    "question": "Uma equipe de desenvolvimento está construindo uma aplicação para processar imagens enviadas por usuários. A ideia é que, sempre que uma imagem for carregada em um bucket do Amazon S3, ela seja redimensionada automaticamente sem intervenção manual. Qual abordagem baseada em arquitetura event-driven é mais indicada para esse cenário?",
+    "options": [
+      "(A) Configurar o bucket do S3 para disparar uma função Lambda automaticamente ao detectar o envio de um novo arquivo.",
+      "(B) Criar um cron job que verifique periodicamente o bucket do S3 e execute uma função Lambda caso encontre novos arquivos.",
+      "(C) Integrar o S3 com o Amazon EC2 para processar os arquivos por meio de um servidor dedicado.",
+      "(D) Usar um script Python local que monitore o bucket e acione o redimensionamento das imagens quando necessário."
+    ],
+    "answer": "(A) Configurar o bucket do S3 para disparar uma função Lambda automaticamente ao detectar o envio de um novo arquivo.",
+    "description": "A arquitetura event-driven favorece o uso de eventos para acionar automaticamente partes da aplicação. Ao configurar o S3 para disparar uma função Lambda quando um novo objeto é criado, o sistema responde de forma reativa e escalável, eliminando a necessidade de processos manuais ou verificação constante."
+  },
+  {
+    "id": 29,
+    "question": "Durante o desenvolvimento de uma aplicação escalável na AWS, um desenvolvedor opta por armazenar sessões de usuário em um banco DynamoDB em vez de manter os dados em memória local. Essa decisão reflete qual tipo de arquitetura?",
+    "options": [
+      "(A) Arquitetura monolítica, que agrupa a lógica de estado em um único bloco de código.",
+      "(B) Arquitetura stateful, pois mantém o estado da sessão entre as requisições na mesma instância.",
+      "(C) Arquitetura orientada a eventos, pois responde dinamicamente a mudanças de estado.",
+      "(D) Arquitetura stateless, pois externaliza o estado e permite auto scaling eficiente."
+    ],
+    "answer": "(D) Arquitetura stateless, pois externaliza o estado e permite auto scaling eficiente.",
+    "description": "A externalização do estado em serviços como o DynamoDB caracteriza uma arquitetura stateless. Isso permite que qualquer instância da aplicação processe requisições de forma independente, facilitando o auto scaling e a alta disponibilidade."
+  },
+  {
+    "id": 30,
+    "question": "Um sistema de pagamentos implementado na AWS usa uma função Lambda que grava transações em uma tabela DynamoDB. Para evitar registros duplicados causados por reenvios automáticos, o desenvolvedor adiciona uma condição à operação put_item. Qual mecanismo garante que a operação será idempotente?  ",
+    "options": [
+      "(A) Usar a opção overwrite=True para garantir que os dados antigos sejam substituídos.",
+      "(B) Adicionar um timestamp único em cada requisição para permitir inserções duplicadas.",
+      "(C) Incluir uma expressão de condição como attribute_not_exists na operação de gravação.",
+      "(D) Ativar o versionamento no DynamoDB para armazenar múltiplas versões da mesma transação."
+    ],
+    "answer": "(C) Incluir uma expressão de condição como attribute_not_exists na operação de gravação.",
+    "description": "A condição attribute_not_exists garante que a operação só será executada se o item ainda não existir na tabela, evitando gravações duplicadas mesmo que a função Lambda seja reexecutada automaticamente."
+  },
+  {
+    "id": 31,
+    "question": "Uma equipe de desenvolvimento precisa armazenar variáveis sensíveis (como chaves de API) para uma função do AWS Lambda. Qual é a abordagem recomendada?",
+    "options": [
+      "(A) Armazenar as chaves em variáveis de ambiente não criptografadas.",
+      "(B) Enviar as chaves como parte do payload da requisição sempre que a função for invocada.",
+      "(C) Codificar as chaves diretamente no código da função.",
+      "(D) Utilizar o AWS Systems Manager Parameter Store ou o AWS Secrets Manager para armazenar e recuperar as chaves."
+    ],
+    "answer": "(D) Utilizar o AWS Systems Manager Parameter Store ou o AWS Secrets Manager para armazenar e recuperar as chaves.",
+    "description": "O AWS Systems Manager Parameter Store ou o AWS Secrets Manager permite armazenar e recuperar segredos de forma segura, evitando expor as chaves no código ou em variáveis de ambiente não protegidas."
+  },
+  {
+    "id": 32,
+    "question": "Em uma arquitetura event-driven, qual das seguintes vantagens descreve corretamente o acionamento do AWS Lambda por eventos do S3?",
+    "options": [
+      "(A) Executar automaticamente o código sempre que um arquivo é carregado no S3.",
+      "(B) Impedir o escalonamento automático da função Lambda.",
+      "(C) Processar os arquivos manualmente, sem depender de triggers",
+      "(D) Agendar a execução da função Lambda em intervalos fixos."
+    ],
+    "answer": "(A) Executar automaticamente o código sempre que um arquivo é carregado no S3.",
+    "description": "Acionar o Lambda via notificação do S3 permite que o código seja executado imediatamente após o upload, sem intervenção manual, aproveitando o modelo event-driven."
+  },
+  {
+    "id": 33,
+    "question": "Uma empresa armazena fotografias em um bucket do Amazon S3 e deseja redimensioná-las automaticamente após o upload. Uma função do AWS Lambda foi criada para redimensionar as imagens. Qual solução atenderá a esse requisito?",
+    "options": [
+      "(A) Configurar o S3 Select para invocar a função do Lambda periodicamente.",
+      "(B) Configurar notificações de eventos do S3 para invocar a função do Lambda.",
+      "(C) Configurar o S3 Storage Lens para invocar a função do Lambda.",
+      "(D) Configurar uma regra de ciclo de vida do S3 para invocar a função do Lambda."
+    ],
+    "answer": "(B) Arquitetura stateless, pois externaliza o estado e permite auto scaling eficiente.",
+    "description": "Configurar notificações de eventos do S3 para invocar automaticamente a função do Lambda após o upload, permitindo o redimensionamento imediato."
+  },
+  {
+    "id": 34,
+    "question": "Qual é uma das principais vantagens de microservices em comparação a uma arquitetura monolítica?",
+    "options": [
+      "(A) Todas as funcionalidades ficam unificadas em um único deploy.",
+      "(B) Requer que todos os serviços compartilhem o mesmo banco de dados.",
+      "(C) A escalabilidade granular permite aumentar somente os serviços com alta demanda.",
+      "(D) Facilita o redeploy completo sempre que há alterações mínimas."
+    ],
+    "answer": "(C) A escalabilidade granular permite aumentar somente os serviços com alta demanda.",
+    "description": "Microservices permitem que cada serviço seja desenvolvido, testado e escalado individualmente, reduzindo o acoplamento e facilitando a manutenção."
+  },
     {
-      "id": 1,
-      "question": "Qual é a principal vantagem de utilizar ferramentas de infraestrutura como código (IaC) como CloudFormation, AWS SAM e AWS CDK na criação e manutenção de ambientes de desenvolvimento e testes?",
-      "options": [
-        "(A) Permitem a criação de ambientes manualmente, sem depender de scripts automatizados.",
-        "(B) Automatizam a criação e configuração dos ambientes, garantindo consistência e facilitando o rollback em caso de erros.",
-        "(C) Exigem intervenção manual a cada alteração, aumentando a segurança dos deploys.",
-        "(D) Fornece recursos para gerenciar apenas dados"
-      ],
-      "answer": "(B) Automatizam a criação e configuração dos ambientes, garantindo consistência e facilitando o rollback em caso de erros.",
-      "description": "Utilizar ferramentas de infraestrutura como código (IaC) como CloudFormation, AWS SAM e AWS CDK permite automatizar a criação e a configuração dos ambientes de desenvolvimento e teste, garantindo que eles sejam consistentes, replicáveis e versionados. Essa automação facilita o rollback em caso de erros e reduz significativamente os erros manuais durante o provisionamento dos recursos."
-    },
+    "id": 35,
+    "question": "Uma empresa está projetando um sistema de mensagens distribuído que precisa lidar com um alto volume de eventos e garantir que cada mensagem seja processada exatamente uma vez. Qual das seguintes opções é a melhor escolha para atender a esse requisito?",
+    "options": [
+      "(A) Usar um tópico do Amazon SNS com múltiplas assinaturas para distribuir as mensagens.",
+      "(B) Utilizar uma fila FIFO do Amazon SQS para garantir a ordem e o processamento único de cada mensagem.",
+      "(C) Criar uma fila padrão do Amazon SQS e processar as mensagens em paralelo.",
+      "(D) Configurar um bucket do Amazon S3 para armazenar eventos e permitir que os consumidores os processem sequencialmente."
+    ],
+    "answer": "(B) Utilizar uma fila FIFO do Amazon SQS para garantir a ordem e o processamento único de cada mensagem.",
+    "description": "As filas FIFO do Amazon SQS garantem a entrega exatamente uma vez e mantêm a ordem das mensagens, sendo ideais para sistemas que exigem processamento único."
+  },
     {
-      "id": 2,
-      "question": "Qual é a principal vantagem de utilizar métricas customizadas em conjunto com o Amazon CloudWatch para monitorar a performance de uma aplicação?",
-      "options": [
-        "(A) Impede que os dados de performance sejam integrados em dashboards, aumentando a segurança.",
-        "(B) Facilita a criação de indicadores específicos que refletem aspectos críticos da aplicação, possibilitando a configuração de alarmes e dashboards customizados.",
-        "(C) Permite que todas as métricas sejam coletadas automaticamente sem nenhuma configuração adicional.",
-        "(D) Substitui completamente a necessidade de utilizar métricas padrão fornecidas pelos serviços AWS."
-      ],
-      "answer": "(B) Facilita a criação de indicadores específicos que refletem aspectos críticos da aplicação, possibilitando a configuração de alarmes e dashboards customizados.",
-      "description": "Utilizar métricas customizadas permite que você crie indicadores específicos que refletem o comportamento único da sua aplicação. Isso possibilita configurar alarmes e dashboards que monitoram aspectos críticos da performance, facilitando a identificação de gargalos e a tomada de decisões proativas para otimizar o sistema."
-    },
+    "id": 36,
+    "question": "Em uma aplicação stateless, qual vantagem se destaca em relação a uma aplicação stateful?",
+    "options": [
+      "(A) Armazenar o estado do usuário localmente em cada instância para resposta imediata.",
+      "(B) Dependência de memória local para sincronização de sessões.",
+      "(C) Todas as requisições exigem bloqueio para manter a consistência do estado local.",
+      "(D) Qualquer instância pode processar a requisição, pois o estado é armazenado externamente."
+    ],
+    "answer": "(D) Qualquer instância pode processar a requisição, pois o estado é armazenado externamente.",
+    "description": "Uma aplicação stateless externaliza o estado, permitindo que qualquer instância processe a requisição e facilitando a escalabilidade e a resiliência."
+  },
     {
-      "id": 3,
-      "question": "Em uma aplicação distribuída, é fundamental proteger os dados tanto enquanto armazenados quanto durante sua transmissão. Qual das seguintes alternativas melhor descreve uma característica exclusiva da criptografia em trânsito?",
-      "options": [
-        "(A) Os dados são cifrados antes de serem gravados em discos ou bancos de dados, protegendo os contra acesso físico indevido.",
-        "(B) Requer o gerenciamento rigoroso das chaves para evitar impacto na performance dos sistemas.",
-        "(C) Os dados são cifrados enquanto são transmitidos pela rede, garantindo que não sejam interceptados ou adulterados.",
-        "(D) Utiliza chaves gerenciadas para manter a confidencialidade dos dados armazenados em sistemas de armazenamento."
-      ],
-      "answer": "(C) Os dados são cifrados enquanto são transmitidos pela rede, garantindo que não sejam interceptados ou adulterados.",
-      "description": "A criptografia em trânsito protege os dados enquanto eles estão sendo transmitidos pela rede, utilizando protocolos como TLS/SSL para cifrá-los. Isso garante que as informações não sejam interceptadas ou adulteradas durante a comunicação. As demais alternativas referem-se a características da criptografia em repouso ou não abordam especificamente a proteção durante a transmissão."
-    },
+    "id": 37,
+    "question": "Um desenvolvedor precisa distribuir notificações para múltiplos endpoints (e-mail, SMS, HTTP) de forma escalável. Qual serviço AWS é mais indicado para essa finalidade?",
+    "options": [
+      "(A) Amazon SNS, pois publica mensagens para múltiplos assinantes simultaneamente.",
+      "(B) Amazon SQS, pois permite a entrega única de mensagens.",
+      "(C) Amazon API Gateway, para expor endpoints de notificação.",
+      "(D) Não utilizar AWS Lambda, pois não suporta notificações diretas."
+    ],
+    "answer": "(A) Amazon SNS, pois publica mensagens para múltiplos assinantes simultaneamente.",
+    "description": "O Amazon SNS permite publicar uma mensagem para múltiplos assinantes simultaneamente, facilitando a distribuição de notificações em diversos formatos."
+  },
     {
-      "id": 4,
-      "question": "Em um ambiente onde as configurações e os segredos da aplicação precisam ser atualizados sem a necessidade de realizar um novo deploy, qual das alternativas apresenta a principal vantagem de utilizar o AWS AppConfig e o AWS Secrets Manager?",
-      "options": [
-        "(A) Eliminam a necessidade de versionamento, pois as configurações não sofrem alterações ao longo do tempo.",
-        "(B) Asseguram que todas as configurações e segredos sejam codificados diretamente no código-fonte para maior segurança.",
-        "(C) Fornecem armazenamento não criptografado para facilitar o acesso rápido aos dados.",
-        "(D) Permitem a atualização dinâmica das configurações e a rotação automática dos segredos, garantindo agilidade e segurança sem interrupções."
-      ],
-      "answer": "(D) Permitem a atualização dinâmica das configurações e a rotação automática dos segredos, garantindo agilidade e segurança sem interrupções.",
-      "description": "A principal vantagem de utilizar o AWS AppConfig e o AWS Secrets Manager é que eles permitem a atualização dinâmica das configurações e a rotação automática dos segredos, sem a necessidade de redeploy da aplicação. Isso garante que as mudanças possam ser implementadas rapidamente e de forma segura, mantendo o ambiente ágil e protegido."
-    },
+    "id": 38,
+    "question": "Uma empresa de pesquisa tem um site que é usado uma vez por dia para realizar cálculos científicos com base em entradas enviadas por meio de uma página da web. Os cálculos consomem muita CPU. Uma função do AWS Lambda executa os cálculos uma vez por dia. Ocasionalmente, os usuários recebem erros devido aos tempos limite das funções do Lambda. Qual alteração reduzirá a duração do runtime da função do Lambda?",
+    "options": [
+      "(A) Configurar o Lambda para executar a função em um tipo de instância do Amazon EC2 recomendado para cargas de trabalho de computação de alto desempenho (HPC).",
+      "(B) Configurar o Lambda para executar a função com um valor de simultaneidade reservada maior.",
+      "(C) Configurar o Lambda para executar a função com um valor de memória maior.",
+      "(D) Configurar o Lambda para executar a função em um tipo de instância com capacidade de intermitência do Amazon EC2."
+    ],
+    "answer": "(C) Configurar o Lambda para executar a função com um valor de memória maior.",
+    "description": "o aumentar a memória alocada, a CPU provisionada também aumenta, reduzindo significativamente o tempo de execução e evitando os tempos limite."
+  },
     {
-      "id": 5,
-      "question": "Qual das alternativas a seguir descreve melhor a vantagem do logging estruturado em comparação ao logging em texto livre?",
-      "options": [
-        "(A) Organiza os logs em um formato padronizado (por exemplo, JSON), facilitando a análise automatizada, a filtragem e a criação de dashboards customizados.",
-        "(B) Permite que os logs sejam gerados em formato livre, facilitando a leitura manual.",
-        "(C) Garante que os logs sejam armazenados sem qualquer formatação, reduzindo o tamanho dos arquivos",
-        "(D) Impede a integração com ferramentas de monitoramento, centralizando os dados somente localmente."
-      ],
-      "answer": "(A) Organiza os logs em um formato padronizado (por exemplo, JSON), facilitando a análise automatizada, a filtragem e a criação de dashboards customizados.",
-      "description": "O logging estruturado organiza os registros em um formato padronizado, como JSON, o que facilita a análise automatizada. Essa abordagem permite filtrar, pesquisar e correlacionar logs com mais precisão, além de possibilitar a criação de dashboards customizados e alertas proativos. Essa padronização é fundamental para detectar rapidamente anomalias e diagnosticar problemas."
-    },
+    "id": 39,
+    "question": "Uma equipe de desenvolvimento usa um tópico do Amazon SNS com uma assinatura de um endpoint HTTPS. Uma alteração no endpoint HTTPS fez com que a assinatura fosse configurada incorretamente, ocasionando perda de mensagens importantes. Para evitar futuras perdas, a equipe precisa armazenar as mensagens quando a entrega falhar. Qual solução atenderá a esses requisitos?",
+    "options": [
+      "(A) Definir uma política de entrega para repetir a entrega a cada dois minutos até que o endpoint esteja disponível.",
+      "(B) Definir uma fila do Amazon SQS como a fila de mensagens mortas para a assinatura HTTPS.",
+      "(C) Configurar um bucket do Amazon S3 como uma assinatura adicional para o tópico do SNS.",
+      "(D) Configurar uma fila do Amazon SQS como um destino de falha para o tópico do SNS."
+    ],
+    "answer": "(D) Configurar uma fila do Amazon SQS como um destino de falha para o tópico do SNS.",
+    "description": "Ao configurar uma fila do Amazon SQS como destino de falha, as mensagens que não forem entregues são redirecionadas para a fila, evitando perdas."
+  },
     {
-      "id": 6,
-      "question": "Para garantir um deploy consistente e ágil de uma função Lambda e de aplicações containerizadas, qual abordagem é a mais recomendada?",
-      "options": [
-        "(A) Ignorar o versionamento e a integração contínua, focando apenas no deploy manual.",
-        "(B) Manter as dependências instaladas manualmente em cada ambiente de deploy, sem uso de ferramentas de automação.",
-        "(C) Utilizar Layers para separar bibliotecas comuns no Lambda e empacotar o código juntamente com scripts de automação integrados ao repositório de código.",
-        "(D) Empacotar o código e as dependências em um único arquivo grande, sem separar bibliotecas comuns."
-      ],
-      "answer": "(C) Utilizar Layers para separar bibliotecas comuns no Lambda e empacotar o código juntamente com scripts de automação integrados ao repositório de código.",
-      "description": "Utilizar Layers para separar as bibliotecas comuns em funções Lambda e empacotar o código junto com scripts de automação integrados ao repositório de código é a abordagem recomendada. Essa prática reduz o tamanho dos pacotes de deploy, facilita a manutenção e garante consistência entre os ambientes, permitindo deploys rápidos e confiáveis."
-    },
-    {
-      "id": 7,
-      "question": "Qual das seguintes práticas é essencial ao utilizar o AWS KMS para proteger dados em repouso em um ambiente AWS?",
-      "options": [
-        "(A) Utilizar chaves assimétricas para criptografar os dados, pois oferecem maior segurança.",
-        "(B) Confiar apenas na criptografia em trânsito, dispensando a necessidade de cifrar os dados armazenados.",
-        "(C) Armazenar as chaves de criptografia diretamente no código da aplicação para facilitar o acesso.",
-        "(D) Criar chaves gerenciadas pelo cliente e configurar políticas de acesso rigorosas para limitar o uso indevido."
-      ],
-      "answer": "(D) Criar chaves gerenciadas pelo cliente e configurar políticas de acesso rigorosas para limitar o uso indevido.",
-      "description": "Utilizar o AWS KMS para criar chaves gerenciadas pelo cliente e configurar políticas de acesso rigorosas é essencial para proteger os dados em repouso. Essa prática garante que apenas identidades autorizadas possam acessar as chaves e, consequentemente, os dados cifrados, reforçando o princípio do menor privilégio e a segurança geral do ambiente."
-    },
-    {
-      "id": 8,
-      "question": "Em um processo de sanitização de dados, qual prática é correta para proteger informações sensíveis antes do armazenamento?",
-      "options": [
-        "(A) Armazenar os dados sensíveis sem qualquer modificação para manter a integridade original.",
-        "(B) Transferir dados sensíveis sem criptografia para reduzir a complexidade do sistema.",
-        "(C) Aplicar técnicas de mascaramento ou exclusão seletiva em dados como CPF e senhas, protegendo-os contra acessos indevidos.",
-        "(D) Exibir todas as informações sensíveis em logs para facilitar o debugging."
-      ],
-      "answer": "(C) Aplicar técnicas de mascaramento ou exclusão seletiva em dados como CPF e senhas, protegendo-os contra acessos indevidos.",
-      "description": "Aplicar técnicas de mascaramento ou exclusão seletiva em dados sensíveis é fundamental para proteger informações como CPF e senhas. A sanitização dos dados impede que informações críticas sejam expostas ou mal utilizadas, mantendo a conformidade com normas de privacidade e segurança. Essa prática assegura que, mesmo que os dados sejam acessados de forma indevida, as informações sensíveis estarão protegidas."
-    },
-    {
-      "id": 9,
-      "question": "Qual das seguintes alternativas melhor descreve uma vantagem do uso do AWS Secrets Manager para gerenciamento de segredos?",
-      "options": [
-        "(A) Suporta a rotação automática dos segredos e permite definir políticas de acesso rigorosas, evitando a exposição de credenciais sensíveis.",
-        "(B) Exige que os segredos sejam embutidos diretamente no código da aplicação para acesso rápido.",
-        "(C) Não integra com outros serviços da AWS, o que isola os segredos de outras operações.",
-        "(D) Permite armazenar segredos de forma não criptografada, facilitando o acesso imediato."
-      ],
-      "answer": "(A) Suporta a rotação automática dos segredos e permite definir políticas de acesso rigorosas, evitando a exposição de credenciais sensíveis.",
-      "description": "O AWS Secrets Manager permite que os segredos sejam armazenados de forma criptografada, com suporte à rotação automática e à definição de políticas de acesso detalhadas. Isso elimina a necessidade de embutir credenciais diretamente no código, diminuindo os riscos de exposição e aumentando a segurança. Essa abordagem centralizada e automatizada é crucial para a proteção de informações sensíveis."
-    },
-    {
-      "id": 10,
-      "question": "Para garantir a qualidade e confiabilidade de uma aplicação antes do deploy em produção, qual a principal vantagem de configurar múltiplos stages (como dev, test e prod) em um pipeline de CI/CD?",
-      "options": [
-        "(A) Permite que todas as alterações sejam diretamente aplicadas ao ambiente de produção sem testes prévios.",
-        "(B) Requer que os ambientes de teste sejam configurados manualmente, o que aumenta a flexibilidade.",
-        "(C) Garante que as alterações sejam validadas em ambientes isolados, possibilitando a identificação e correção de erros antes da promoção para produção.",
-        "(D) Impede a automação do processo de deploy, assegurando que todas as mudanças sejam feitas manualmente."
-      ],
-      "answer": "(C) Garante que as alterações sejam validadas em ambientes isolados, possibilitando a identificação e correção de erros antes da promoção para produção.",
-      "description": "Configurar múltiplos stages (desenvolvimento, teste e produção) em um pipeline de CI/CD permite validar alterações em ambientes isolados antes que sejam promovidas para produção. Essa prática possibilita identificar e corrigir erros em uma fase inicial, reduzindo o risco de interrupções no ambiente de produção e aumentando a confiabilidade do sistema."
-    },
-    {
-      "id": 11,
-      "question": "Para reduzir o tamanho do pacote de implantação e melhorar o tempo de carregamento de uma função Lambda, qual abordagem é a mais indicada para gerenciar dependências, como bibliotecas externas?",
-      "options": [
-        "(A) Criar uma Layer contendo as bibliotecas e anexá-la à função Lambda.",
-        "(B) Realizar o download das bibliotecas durante a execução da função.",
-        "(C) Armazenar as bibliotecas em um bucket S3 e referenciá-las via URL durante a execução.",
-        "(D) Incluir todas as bibliotecas necessárias diretamente no pacote de implantação da função."
-      ],
-      "answer": "(A) Criar uma Layer contendo as bibliotecas e anexá-la à função Lambda.",
-      "description": "Criar uma Layer para incluir as bibliotecas necessárias permite separar as dependências do código principal da função Lambda, reduzindo o tamanho do pacote de implantação e melhorando o tempo de carregamento. Essa abordagem promove a reutilização das bibliotecas entre diferentes funções e simplifica a manutenção, pois as atualizações podem ser realizadas de forma independente do código da função."
-    },
-    {
-      "id": 12,
-      "question": "Ao utilizar a biblioteca Boto3 para interagir com os serviços AWS, qual das seguintes práticas é fundamental para garantir que as operações sejam realizadas de forma segura e consistente?",
-      "options": [
-        "(A) Depender apenas das configurações padrão, sem especificar a região.",
-        "(B) Ignorar o tratamento de exceções para simplificar o fluxo da aplicação.",
-        "(C) Codificar as credenciais diretamente no código para facilitar o acesso.",
-        "(D) Configurar a sessão especificando explicitamente a região e as credenciais apropriadas."
-      ],
-      "answer": "(D) Configurar a sessão especificando explicitamente a região e as credenciais apropriadas.",
-      "description": "Configurar a sessão especificando explicitamente a região e as credenciais é essencial para que as operações com o Boto3 sejam autenticadas e direcionadas aos recursos corretos, garantindo assim segurança e consistência na comunicação com os serviços AWS."
-    },
-    {
-      "id": 13,
-      "question": "Para garantir que uma operação de escrita no Amazon DynamoDB seja idempotente e evite a inserção de dados duplicados em cenários de retries, qual abordagem é recomendada?",
-      "options": [
-        "(A) Reexecutar a operação sem capturar exceções relacionadas à duplicação.",
-        "(B) Utilizar a condição 'attribute_not_exists' na operação put_item.",
-        "(C) Ignorar o uso de chaves de idempotência, confiando na lógica do cliente.",
-        "(D) Remover quaisquer condições na operação para acelerar a execução."
-      ],
-      "answer": "(B) Utilizar a condição 'attribute_not_exists' na operação put_item.",
-      "description": "Utilizar a condição 'attribute_not_exists' na operação put_item do DynamoDB é a abordagem recomendada para implementar idempotência. Dessa forma, a operação só ocorrerá se o item ainda não existir, prevenindo a duplicação de dados mesmo em cenários de retries."
-    },
-    {
-      "id": 14,
-      "question": "Para otimizar os custos e a performance no armazenamento de dados, qual das estratégias abaixo é recomendada para o Amazon S3?",
-      "options": [
-        "(A) Armazenar todos os objetos na classe S3 Standard para garantir acesso imediato.",
-        "(B) Atualizar manualmente cada objeto para uma classe de armazenamento mais barata sempre que houver mudanças.",
-        "(C) Desativar o versionamento de objetos para reduzir a complexidade do gerenciamento.",
-        "(D) Configurar políticas de lifecycle para mover automaticamente objetos para classes de armazenamento mais econômicas, como S3 Glacier, após um período determinado."
-      ],
-      "answer": "(D) Configurar políticas de lifecycle para mover automaticamente objetos para classes de armazenamento mais econômicas, como S3 Glacier, após um período determinado.",
-      "description": "Configurar políticas de lifecycle no Amazon S3 para mover objetos automaticamente para classes de armazenamento mais econômicas (como S3 Glacier) após um período determinado é uma estratégia recomendada para reduzir os custos de armazenamento sem comprometer o acesso aos dados. Essa prática, quando combinada com estratégias de caching para dados frequentemente acessados (como o uso do ElastiCache), otimiza a performance e gerencia o ciclo de vida dos dados de forma eficiente."
-    },
-    {
-      "id": 15,
-      "question": "Em um cenário de processamento de mensagens com Amazon SQS, a aplicação frequentemente recebe mensagens que não podem ser processadas com sucesso devido a erros temporários. Qual abordagem é recomendada para lidar com essas mensagens sem interromper o fluxo principal de processamento?",
-      "options": [
-        "(A) Bloquear o processamento de todas as mensagens se uma única mensagem falhar.",
-        "(B) Redirecionar as mensagens que falharam para uma Dead-Letter Queue (DLQ) para análise posterior.",
-        "(C) Ignorar as mensagens com erros e seguir com o processamento.",
-        "(D) Reenviar as mensagens repetidamente na mesma fila até serem processadas com sucesso."
-      ],
-      "answer": "(B) Redirecionar as mensagens que falharam para uma Dead-Letter Queue (DLQ) para análise posterior.",
-      "description": "Redirecionar as mensagens que falharam para uma Dead-Letter Queue (DLQ) é a abordagem mais adequada, pois permite isolar mensagens problemáticas sem interromper o processamento das demais. Assim, é possível analisar e reprocessar essas mensagens posteriormente, mantendo a continuidade do fluxo principal e evitando que erros recorrentes afetem o sistema como um todo."
-    },
-    {
-      "id": 16,
-      "question": "Para reduzir a latência associada ao cold start em funções Lambda que se conectam a bancos de dados, qual das abordagens abaixo é considerada uma prática recomendada?",
-      "options": [
-        "(A) Estabelecer a conexão com o banco de dados somente após confirmar que a função está 'quente'.",
-        "(B) Inicializar a conexão com o banco de dados dentro do handler a cada invocação.",
-        "(C) Inicializar a conexão com o banco de dados fora do handler, permitindo a reutilização em invocações subsequentes.",
-        "(D) Fechar imediatamente a conexão após cada operação para evitar riscos de segurança"
-      ],
-      "answer": "(C) Inicializar a conexão com o banco de dados fora do handler, permitindo a reutilização em invocações subsequentes.",
-      "description": "Inicializar a conexão com o banco de dados fora do handler permite que a conexão seja estabelecida apenas uma vez durante o cold start e, em seguida, reutilizada em invocações subsequentes enquanto o ambiente Lambda estiver 'quente'. Essa prática reduz significativamente a latência, evitando a sobrecarga de criar uma nova conexão a cada chamada."
-    },
-    {
-      "id": 17,
-      "question": "Uma aplicação que realiza chamadas a um serviço de terceiros enfrenta falhas intermitentes. Para mitigar os efeitos dessas falhas e evitar a sobrecarga do serviço, qual abordagem é a mais recomendada para implementar o retry?",
-      "options": [
-        "(A) Realizar retries imediatos sem delay, até que a operação tenha sucesso.",
-        "(B) Implementar retries com exponential backoff e adicionar jitter para distribuir as tentativas.",
-        "(C) Implementar um delay fixo entre tentativas, sem variação.",
-        "(D) Parar de tentar após a primeira falha e notificar o usuário imediatamente."
-      ],
-      "answer": "(B) Implementar retries com exponential backoff e adicionar jitter para distribuir as tentativas.",
-      "description": "Implementar retries com exponential backoff e adicionar jitter é a abordagem recomendada, pois ela aumenta progressivamente o intervalo entre as tentativas (por exemplo, 1s, 2s, 4s, etc.) e inclui um fator aleatório (jitter) para distribuir as requisições. Dessa forma, evita-se que múltiplas requisições sejam disparadas simultaneamente, reduzindo o risco de sobrecarga e promovendo uma recuperação mais suave em caso de falhas temporárias."
-    },
-    {
-      "id": 18,
-      "question": "Para uma aplicação que exige alta escalabilidade e baixa latência, qual das seguintes características é mais típica de bancos NoSQL, como o Amazon DynamoDB, em comparação aos bancos relacionais (RDS, Aurora)?",
-      "options": [
-        "(A) Alta escalabilidade horizontal, flexibilidade de esquema e, por padrão, consistência eventual.",
-        "(B) Necessidade de manutenção manual de infraestrutura para escalabilidade.",
-        "(C) Estrutura de dados rigidamente definida com esquemas preestabelecidos.",
-        "(D) Suporte robusto a transações ACID e operações complexas de joins."
-      ],
-      "answer": "(A) Alta escalabilidade horizontal, flexibilidade de esquema e, por padrão, consistência eventual.",
-      "description": "Bancos NoSQL, como o Amazon DynamoDB, são projetados para oferecer alta escalabilidade horizontal e baixa latência, com uma flexibilidade de esquema que permite adaptações rápidas às mudanças dos dados. Por padrão, utilizam consistência eventual, a qual pode ser ajustada para consistência forte quando necessário. Em contrapartida, bancos relacionais oferecem suporte a transações ACID e esquemas definidos, mas podem enfrentar desafios de escalabilidade horizontal."
-    },
-    {
-      "id": 19,
-      "question": "Para garantir que alterações no código da função Lambda não impactem o ambiente de produção e possibilitem um rollback rápido em caso de falhas, qual abordagem é a mais adequada?",
-      "options": [
-        "(A) Alterar diretamente o código da função em produção sem utilizar versionamento.",
-        "(B) Utilizar um único deploy sem gerenciamento de versões, confiando apenas em testes manuais.",
-        "(C) Publicar versões imutáveis da função e criar aliases que apontem para a versão estável, integrando o API Gateway via variáveis de estágio.",
-        "(D) Manter múltiplas funções Lambda para cada ambiente sem o uso de aliases ou variáveis e estágio."
-      ],
-      "answer": "(C) Publicar versões imutáveis da função e criar aliases que apontem para a versão estável, integrando o API Gateway via variáveis de estágio.",
-      "description": "Publicar versões imutáveis da função Lambda e criar aliases que apontem para a versão estável é a abordagem recomendada para evitar que alterações não testadas impactem o ambiente de produção. Essa prática permite que o API Gateway utilize variáveis de estágio para direcionar o tráfego à versão correta, facilitando o rollback caso haja problemas com a nova versão."
-    },
-    {
-      "id": 20,
-      "question": "Ao projetar uma API segura, escalável e de fácil manutenção, qual das seguintes práticas NÃO é recomendada?",
-      "options": [
-        "(A) Permitir que o backend retorne mensagens de erro sem realizar qualquer validação ou transformação dos dados.",
-        "(B) Transformar e padronizar os dados das requisições e respostas para garantir consistência na comunicação.",
-        "(C) Validar rigorosamente o payload recebido para assegurar que os dados necessários estejam presentes.",
-        "(D) Sobrescrever os códigos de status HTTP com mensagens de erro claras e informativas."
-      ],
-      "answer": "(A) Permitir que o backend retorne mensagens de erro sem realizar qualquer validação ou transformação dos dados.",
-      "description": "Permitir que o backend retorne mensagens de erro sem realizar qualquer validação ou transformação dos dados não é uma prática recomendada. As boas práticas de APIs enfatizam a importância de validar o payload, transformar os dados para manter a consistência e sobrescrever os códigos de status HTTP para fornecer mensagens de erro claras, facilitando o diagnóstico e a manutenção."
-    },
-    {
-      "id": 21,
-      "question": "dQual modelo de computação em nuvem exige que o cliente se envolva mais no gerenciamento da segurança da infraestrutura?",
-      "options": [
-        "(A) Infraestrutura como serviço (IaaS)",
-        "(B) Plataforma como serviço (PaaS)",
-        "(C) Software como serviço (SaaS)",
-        "(D) Contêineres como Serviço (CaaS)"
-      ],
-      "answer": "(A) Infraestrutura como serviço (IaaS)",
-      "description": "O IaaS contém os componentes básicos da IT na nuvem. Normalmente, o IaaS oferece acesso a recursos de rede, computadores (virtuais ou em hardware dedicado) e espaço de armazenamento de dados. O IaaS oferece o mais alto nível de flexibilidade e controle de gerenciamento sobre os recursos de TI. Ex: EC2."
-    },
-    {
-      "id": 22,
-      "question": "dQual modelo de computação em nuvem exige que a AWS gerencie a segurança da infraestrutura em sua totalidade?",
-      "options": [
-        "(A) Contêineres como serviço (CaaS)",
-        "(B) Software como serviço (SaaS)",
-        "(C) Plataforma como serviço (PaaS)",
-        "(D) Infraestrutura como serviço (IaaS)"
-      ],
-      "answer": "(B) Software como serviço (SaaS)",
-      "description": "O SAAS oferece um produto completo, executado e gerenciado pelo provedor de serviços. Na maioria dos casos, quando as pessoas mencionam SaaS, estão falando de aplicativos de usuários finais (como e-mail baseado na web). Com uma oferta de SaaS, você não precisa pensar sobre a manutenção do serviço ou o gerenciamento da infraestrutura subjacente. Você só precisa se preocupar sobre como utilizará esse software específico. Ex: Rekognition, Polly, Translate."
-    },
-    {
-      "id": 23,
-      "question": "dUm administrador deseja criar novos usuários para sua conta AWS e atribuir permissões a eles. Qual dos serviços deve ser usado pelo administrador?",
-      "options": [
-        "(A) Amazon EC2",
-        "(B) Amazon EC2",
-        "(C) Amazon Route 53",
-        "(D) AWS Identity and Access Management (IAM)"
-      ],
-      "answer": "(D) AWS Identity and Access Management (IAM)",
-      "description": "Cada conta AWS é, na verdade, um usuário root. Este usuário possui usuários IAM associados a ele que são utilizados para gerenciar os recursos da conta. Esses usuários IAM (sem ser o root) podem (sem obrigatoriedade) estar contidos em grupos IAM. Um usuário IAM pode estar contido em vários grupos IAM. Um grupo IAM pode conter vários usuários IAM.Um grupo IAM NÃO pode conter outro grupo IAM."
-    },
-    {
-      "id": 24,
-      "question": "dQuais das opções a seguir são categorias de serviços da AWS?",
-      "options": [
-        "(A) Segurança, identidade e conformidade",
-        "(B) Zonas de disponibilidade",
-        "(C) Data Warehouse",
-        "(D) Amazon Route 53"
-      ],
-      "answer": "(A) Segurança, identidade e conformidade",
-      "description": "Em breve"
-    },
-    {
-      "id": 25,
-      "question": "dQual serviço computacional permite que os usuários criem máquinas virtuais na nuvem?",
-      "options": [
-        "(A) AWS Lambda",
-        "(B) AWS Elastic Beanstalk",
-        "(C) AWS Batch",
-        "(D) Amazon EC2"
-      ],
-      "answer": "(D) Amazon EC2",
-      "description": "O Elastic Compute Cloud é um dos serviços mais fundamentais e populares da AWS que tem capacidade computacional redimensionável na nuvem. Ele foi projetado para facilitar a computação em escala na Web permitindo que empresas e desenvolvedores criem e gerenciem VM’s (Virtual Machine) podendo escolher o tipo de VM que melhor atende às suas necessidades tendo a possibilidade de configurar fatores como sistema operacional, processador, memória, armazenamento e rede."
-    },
-    {
-      "id": 26,
-      "question": "Qual serviço os usuários podem utilizar para provisionar uma seção logicamente isolada da nuvem AWS para estabelecer uma rede virtual?",
-      "options": [
-        "(A) Amazon Aurora",
-        "(B) Amazon Route 53",
-        "(C) Amazon VPC",
-        "(D) Amazon Elastic Container Service (Amazon ECS)"
-      ],
-      "answer": "(C) Amazon VPC",
-      "description": "Com a Amazon Virtual Private Cloud, é possível iniciar recursos da AWS em uma rede virtual definida por você. Essa rede virtual se assemelha a uma rede tradicional que você operaria no seu datacenter, com os benefícios de usar a infraestrutura dimensionável da AWS."
-    },
-    {
-      "id": 27,
-      "question": "Qual propriedade identifica exclusivamente um objeto no bucket do Amazon S3?",
-      "options": [
-        "(A) Valor do objeto",
-        "(B) Chave do objeto",
-        "(C) Versão",
-        "(D) Metadados"
-      ],
-      "answer": "(B) Chave do objeto",
-      "description": "Em breve"
-    },
-    {
-      "id": 28,
-      "question": "Quantos noves de durabilidade o Amazon S3 foi projetado para fornecer?",
-      "options": [
-        "(A) 4 noves (99,99)",
-        "(B) 4 noves (99,99)",
-        "(C) 4 noves (99,99)",
-        "(D) 11 noves (99,999999999)"
-      ],
-      "answer": "(D) 11 noves (99,999999999)",
-      "description": "Todas as classes de armazenamento S3 Glacier fornecem escalabilidade virtualmente ilimitada e são projetadas para 99,999999999% (11 noves) de durabilidade de dados."
-    },
-    {
-      "id": 29,
-      "question": "Uma empresa financeira deseja usar a solução mais barata do Amazon S3 para o armazenamento de longo prazo. Ela só precisará acessar seus dados uma ou duas vezes por ano. Qual classe de armazenamento do Amazon S3 ela deve escolher?",
-      "options": [
-        "(A) S3 Glacier Deep Archive",
-        "(B) S3 Standard-Infrequent Access (S3 Standard-IA)",
-        "(C) S3 Standard",
-        "(D) S3 One Zone-Infrequent Access (S3 One Zone-IA)"
-      ],
-      "answer": "(A) S3 Glacier Deep Archive",
-      "description": "É possível escolher entre três classes de armazenamento de arquivo otimizadas para diferentes padrões de acesso e duração de armazenamento. Para economizar ainda mais em armazenamento de arquivo de longa duração, como arquivos de conformidade e preservação de mídia digital, é recomendado  S3 Glacier Deep Archive, armazenamento de menor custo na nuvem com recuperação de dados em 12 horas."
-    },
-    {
-      "id": 30,
-      "question": "Qual ação incorre em um custo ao usar o Amazon S3?",
-      "options": [
-        "(A) Transferência de dados para o Amazon S3",
-        "(B) Transferência de dados para fora do Amazon S3 e para o Amazon CloudFront",
-        "(C) Transferência de dados para outras regiões AWS",
-        "(D) Transferência de dados com mais de 5 MB para o Amazon S3"
-      ],
-      "answer": "(C) Transferência de dados para outras regiões AWS",
-      "description": "Você paga por toda a largura de banda para dentro e para fora do Amazon S3, exceto pelo seguinte: 1) Dados transferidos da Internet; 2) Dados transferidos entre buckets do S3 na mesma região da AWS; 3) Dados transferidos de um bucket do Amazon S3 para qualquer serviço da AWS dentro da mesma região AWS que o bucket do S3 (incluindo para uma conta diferente na mesma região da AWS); 4) Dados transferidos para fora para o Amazon CloudFront(você não paga pela transferência de dados do seu bucket do S3 para o Amazon CloudFront se você estiver usando o CloudFront para entregar o conteúdo do seu bucket)."
-    },
-    {
-      "id": 31,
-      "question": "Um desenvolvedor deseja executar um aplicativo que carrega uma grande quantidade de dados dentro da memória em uma instância do Amazon EC2. Qual tipo de instância o desenvolvedor deve escolher para alcançar o melhor desempenho?",
-      "options": [
-        "(A) Uso geral",
-        "(B) Otimizada para computação",
-        "(C) Otimizada para memória",
-        "(D) Otimizada para computação"
-      ],
-      "answer": "(C) Otimizada para memória",
-      "description": "A AWS oferece uma ampla variedade de instâncias otimizadas para memória, desde instâncias de 8 GiB em instâncias R6g até instâncias com mais memória (U-1) de 24 TiB. Essas instâncias são projetadas especificamente para grandes bancos de dados em memória."
-    },
-    {
-      "id": 32,
-      "question": "Qual das ações a seguir preserva os dados em uma instância do Amazon EC2 que usa um armazenamento de instância como volume raiz?",
-      "options": [
-        "(A) Reinicializar",
-        "(B) Interromper",
-        "(C) Terminar",
-        "(D) Hibernar"
-      ],
-      "answer": "(A) Reinicializar",
-      "description": "A reinicialização simplesmente reinicia o sistema operacional na instância. Os dados no armazenamento de instância permanecem intactos."
-    },
-    {
-      "id": 33,
-      "question": "Qual das opções a seguir são verdadeiras sobre security groups para instâncias do Amazon EC2?",
-      "options": [
-        "(A) Eles oferecem suporte a regras que negam tráfego de fontes especificadas",
-        "(B) Eles oferecem suporte adicionando regras que permitem o tráfego de fontes especificadas",
-        "(C) Eles permitem todo o tráfego de entrada por padrão",
-        "(D) Uma instância do EC2 pode usar apenas um security group"
-      ],
-      "answer": "(B) Eles oferecem suporte adicionando regras que permitem o tráfego de fontes especificadas",
-      "description": "Um grupo de segurança atua como firewall virtual para as instâncias do EC2 visando controlar o tráfego de entrada e de saída. Ao executar a instância, é possível especificar um ou mais grupos de segurança. Se você não especificar um grupo de segurança, o Amazon EC2 usará o grupo de segurança padrão para a VPC."
-    },
-    {
-      "id": 34,
-      "question": "Uma empresa precisa executar um aplicativo tolerante a falhas e que tolere interrupções na AWS. Quais modelo de preço atenderia melhor aos requisitos e permitiria reduzir o custo o máximo possível?",
-      "options": [
-        "(A) Instância on-demand",
-        "(B) Instâncias reservadas",
-        "(C) Instâncias dedicadas",
-        "(D) Instâncias spot"
-      ],
-      "answer": "(D) Instâncias spot",
-      "description": "As instâncias spot do Amazon EC2 permitem aproveitar a capacidade não utilizada do EC2 na Nuvem AWS e estão disponíveis com até 90% de desconto em comparação aos preços sob demanda. É possível usar instâncias spot para diversas aplicações sem estado, tolerantes a falhas ou flexíveis, como: big data, workloads em contêineres, CI/CD, servidores Web, computação de alta performance (HPC) e workloads de teste e de desenvolvimento."
-    }
-  ]
+    "id": 40,
+    "question": "Uma empresa está desenvolvendo uma aplicação que processa imagens carregadas no Amazon S3. O processo requer que cada imagem passe por múltiplas etapas antes de ser armazenada em um bucket final. Qual abordagem permitirá um processamento eficiente e escalável dessas imagens?",
+    "options": [
+      "(A) Usar uma fila do Amazon SQS para armazenar imagens carregadas e processá-las sequencialmente em um container do Amazon ECS.",
+      "(B) Configurar um fluxo de trabalho do AWS Step Functions, onde cada etapa do processamento é uma função Lambda separada.",
+      "(C) Criar uma instância EC2 para processar as imagens sequencialmente e armazená-las no bucket final.",
+      "(D) Criar um tópico do Amazon SNS para notificar múltiplos processadores em tempo real, garantindo a distribuição das imagens entre instâncias EC2."
+    ],
+    "answer": "(B) Configurar um fluxo de trabalho do AWS Step Functions, onde cada etapa do processamento é uma função Lambda separada.",
+    "description": "AWS Step Functions permite dividir o processamento de imagens em etapas independentes e escaláveis, garantindo controle e rastreabilidade do fluxo de trabalho."
+  },
+]

@@ -226,12 +226,12 @@ const Quiz = () => {
               <section className="flex flex-col gap-5 px-3">
                 <div>
                   <p className="font-bold">Resposta correta: </p>
-                  {questions[currentQuestionIndex].answer}
+                  <p>{questions[currentQuestionIndex].answer}</p>
                 </div>
 
                 <div>
                   <p className="font-bold">Feedback:</p>
-                  {questions[currentQuestionIndex].description}
+                  <p className="text-justify">{questions[currentQuestionIndex].description}</p>
                 </div>
               </section>
             )}
