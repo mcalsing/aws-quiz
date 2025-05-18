@@ -120,7 +120,7 @@ const Quiz = () => {
   }
 
   const handleShowCurrentAnswer = () => {
-    setShowCurrentAnswer(true)
+    setShowCurrentAnswer(!showCurrentAnswer)
   }
 
   const handleSubmit = () => {
@@ -184,10 +184,10 @@ const Quiz = () => {
                 <p className="flex rounded text-xl p-2">
                   <p className="text-justify">{questions[currentQuestionIndex].question}</p>
                 </p>
-                <div className="grid grid-cols-2 gap-4 mt-5">
+                <div className="grid grid-cols-1 gap-4 mt-5">
                   {questions[currentQuestionIndex].options.map((option, index) => (
                     <div
-                      className={`border border-gray-400 rounded p-5 cursor-pointer hover:bg-sky-800 hover:text-slate-400 
+                      className={`rounded p-5 cursor-pointer hover:bg-sky-800 hover:text-slate-300 
                         ${answers[questions[currentQuestionIndex].id] === option ? "bg-sky-800 text-slate-100" : ""}`}
                       key={option}
                       onClick={() => handleAnswerSelect(questions[currentQuestionIndex].id, option)}
@@ -200,8 +200,7 @@ const Quiz = () => {
             )}
             <button
               onClick={handleShowCurrentAnswer}
-              disabled={isButtonNextDisabled}
-              className={`${isButtonNextDisabled ? "text-slate-400" : "text-slate-100"} bg-sky-800 px-6 py-2 m-3 rounded`}
+              className="text-slate-100 bg-sky-800 px-6 py-2 m-3 rounded"
             >
               Mostrar resposta
             </button>
@@ -210,7 +209,7 @@ const Quiz = () => {
               disabled={isButtonNextDisabled}
               className={`${isButtonNextDisabled ? "text-slate-400" : "text-slate-100"} bg-sky-800 px-6 py-2 m-3 rounded`}
             >
-              Próxima Pergunta
+              Próxima pergunta
             </button>
             <button
               onClick={handleSubmit}

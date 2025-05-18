@@ -246,7 +246,7 @@
       "(A) Atualizar a política de IAM do grupo de logs para especificar a chave simétrica, sem alterar sua configuração.",
       "(B) Excluir o grupo de logs atual, criar um novo grupo através do console da AWS e associar uma chave assimétrica gerenciada pelo cliente.",
       "(C) Modificar o grupo de logs existente utilizando a AWS CLI, criando e associando uma chave simétrica gerenciada pelo cliente.",
-      "(D) Contêineres como Serviço (CaaS)"
+      "(D) Configurar o redirecionamento dos logs para um bucket do S3 com criptografia habilitada."
     ],
     "answer": "(C) Modificar o grupo de logs existente utilizando a AWS CLI, criando e associando uma chave simétrica gerenciada pelo cliente.",
     "description": "Modificar o grupo de logs existente via AWS CLI permite associar uma chave simétrica gerenciada pelo cliente do AWS KMS ao grupo, atendendo ao requisito de criptografia em repouso. Essa ação configura corretamente o CloudWatch Logs para usar a chave adequada sem a necessidade de recriar o grupo."
@@ -392,7 +392,7 @@
       "(C) Configurar o S3 Storage Lens para invocar a função do Lambda.",
       "(D) Configurar uma regra de ciclo de vida do S3 para invocar a função do Lambda."
     ],
-    "answer": "(B) Arquitetura stateless, pois externaliza o estado e permite auto scaling eficiente.",
+    "answer": "(B) Configurar notificações de eventos do S3 para invocar a função do Lambda.",
     "description": "Configurar notificações de eventos do S3 para invocar automaticamente a função do Lambda após o upload, permitindo o redimensionamento imediato."
   },
   {
@@ -417,7 +417,7 @@
       "(D) Configurar um bucket do Amazon S3 para armazenar eventos e permitir que os consumidores os processem sequencialmente."
     ],
     "answer": "(B) Utilizar uma fila FIFO do Amazon SQS para garantir a ordem e o processamento único de cada mensagem.",
-    "description": "As filas FIFO do Amazon SQS garantem a entrega exatamente uma vez e mantêm a ordem das mensagens, sendo ideais para sistemas que exigem processamento único."
+    "description": "As filas FIFO do Amazon SQS garantem a entrega de exatamente uma vez e mantêm a ordem das mensagens, sendo ideais para sistemas que exigem processamento único."
   },
     {
     "id": 36,
@@ -453,7 +453,7 @@
       "(D) Configurar o Lambda para executar a função em um tipo de instância com capacidade de intermitência do Amazon EC2."
     ],
     "answer": "(C) Configurar o Lambda para executar a função com um valor de memória maior.",
-    "description": "o aumentar a memória alocada, a CPU provisionada também aumenta, reduzindo significativamente o tempo de execução e evitando os tempos limite."
+    "description": "Ao aumentar a memória alocada, a CPU provisionada também aumenta, reduzindo significativamente o tempo de execução e evitando os tempos limite."
   },
     {
     "id": 39,
@@ -478,5 +478,185 @@
     ],
     "answer": "(B) Configurar um fluxo de trabalho do AWS Step Functions, onde cada etapa do processamento é uma função Lambda separada.",
     "description": "AWS Step Functions permite dividir o processamento de imagens em etapas independentes e escaláveis, garantindo controle e rastreabilidade do fluxo de trabalho."
+  },
+  {
+    "id": 41,
+    "question": "Uma função do AWS Lambda sofre com o efeito 'cold start'. Qual abordagem é recomendada para mitigar esse problema?",
+    "options": [
+      "(A) Diminuir a memória provisionada para reduzir custos, mesmo que aumente o cold start.",
+      "(B) Aumentar o timeout da função para compensar o delay do cold start.",
+      "(C) Utilizar uma função monolítica para reduzir o número de invocações simultâneas.",
+      "(D) Utilizar provisioned concurrency para manter instâncias aquecidas."
+    ],
+    "answer": "(D) Utilizar provisioned concurrency para manter instâncias aquecidas.",
+    "description": "Configurar provisioned concurrency mantém instâncias pré-aquecidas, diminuindo o tempo de resposta em invocações subsequentes e mitigando o efeito cold start."
+  },
+  {
+    "id": 42,
+    "question": "Uma empresa integrou um aplicativo de leilão on-line de um terceiro ao seu site para vender produtos raros. O aplicativo de leilão foi desenvolvido usando tecnologias sem servidor e armazena dados no Amazon DynamoDB. A equipe de desenvolvimento deseja criar um novo aplicativo sem servidor para adicionar funcionalidades personalizadas aos lances recém-colocados, sem alterar o código do aplicativo de terceiros. Qual solução atenderá a esses requisitos?",
+    "options": [
+      "(A) Configurar a tabela do DynamoDB para usar o DynamoDB Streams e criar uma função do AWS Lambda acionada pelo stream, que aplique a nova funcionalidade aos lances.",
+      "(B) Configurar um stream de entrega no Amazon Kinesis Data Firehose para ler as alterações da tabela e acionar um aplicativo containerizado.",
+      "(C) Codificar um novo aplicativo que consulte a tabela do DynamoDB periodicamente em um container do ECS no Fargate.",
+      "(D) Codificar um novo aplicativo que consulte a tabela do DynamoDB periodicamente em uma instância EC2."
+    ],
+    "answer": "(A) Configurar a tabela do DynamoDB para usar o DynamoDB Streams e criar uma função do AWS Lambda acionada pelo stream, que aplique a nova funcionalidade aos lances.",
+    "description": "Utilizar o DynamoDB Streams com uma função do Lambda permite aplicar a nova funcionalidade imediatamente, sem alterar o código do aplicativo de terceiros."
+  },
+  {
+    "id": 43,
+    "question": "Uma equipe de desenvolvimento usa um tópico do Amazon SNS com uma assinatura de um endpoint HTTPS. Uma alteração no endpoint HTTPS fez com que a assinatura fosse configurada incorretamente, ocasionando perda de mensagens importantes. Para evitar futuras perdas, a equipe precisa armazenar as mensagens quando a entrega falhar. Qual solução atenderá a esses requisitos?",
+    "options": [
+      "(A) Definir uma política de entrega para repetir a entrega a cada dois minutos até que o endpoint esteja disponível.",
+      "(B) Definir uma fila do Amazon SQS como a fila de mensagens mortas para a assinatura HTTPS.",
+      "(C) Configurar um bucket do Amazon S3 como uma assinatura adicional para o tópico do SNS.",
+      "(D) Configurar uma fila do Amazon SQS como um destino de falha para o tópico do SNS."
+    ],
+    "answer": "(D) Configurar uma fila do Amazon SQS como um destino de falha para o tópico do SNS.",
+    "description": "Ao configurar uma fila do Amazon SQS como destino de falha, as mensagens que não forem entregues são redirecionadas para a fila, evitando perdas."
+  },
+  {
+    "id": 44,
+    "question": "Uma empresa precisa orquestrar um fluxo de trabalho composto por várias funções do AWS Lambda, cada uma executando em sequência e com lógica de retry personalizada. Qual serviço é mais adequado para isso?",
+    "options": [
+      "(A) AWS CloudFormation, para gerenciar a criação de recursos.",
+      "(B) Amazon SQS, para enfileirar cada etapa do processo.",
+      "(C) AWS Step Functions, para criar uma máquina de estados que orquestre o fluxo.",
+      "(D) Amazon API Gateway, para expor cada função Lambda individualmente."
+    ],
+    "answer": "(C) AWS Step Functions, para criar uma máquina de estados que orquestre o fluxo.",
+    "description": "O AWS Step Functions permite criar máquinas de estado que orquestram funções Lambda em sequência ou em paralelo, com controle de retries e lógica de transição."
+  },
+  {
+    "id": 45,
+    "question": "Um desenvolvedor deseja modificar as requisições e respostas de uma API REST antes de enviá-las e recebê-las da função do Lambda. Qual recurso do Amazon API Gateway pode ser utilizado para isso?",
+    "options": [
+      "(A) Criar um estágio no API Gateway e usar o recurso de 'Mapping Templates' para transformar o payload.",
+      "(B) Executar a função do Lambda manualmente antes de enviar a resposta.",
+      "(C) Configurar um evento do EventBridge para filtrar e redirecionar as requisições.",
+      "(D) Definir as variáveis de ambiente do Lambda para interceptar os dados."
+    ],
+    "answer": "(A) Criar um estágio no API Gateway e usar o recurso de 'Mapping Templates' para transformar o payload.",
+    "description": "O recurso de 'Mapping Templates' do API Gateway permite modificar as requisições e respostas, adequando o formato antes de chegar à função Lambda e após a resposta."
+  },
+  {
+    "id": 46,
+    "question": "Um desenvolvedor está utilizando o SDK da AWS (boto3) para gravar dados em uma tabela do Amazon DynamoDB. Durante os testes, ele recebe o erro ProvisionedThroughputExceededException, que retorna o código HTTP 400. O desenvolvedor deseja implementar uma estratégia de tratamento adequada para esse tipo de falha e garantir a confiabilidade do sistema.",
+    "options": [
+      "(A) Interromper a operação imediatamente ao detectar o erro e retornar uma resposta de falha para o usuário.",
+      "(B) Implementar retries automáticos com backoff exponencial ao capturar esse tipo de exceção.",
+      "(C) Ignorar o erro e prosseguir com a operação, tentando em outro recurso sem verificação adicional.",
+      "(D) Aumentar o throughput da tabela toda vez que a exceção ocorrer."
+    ],
+    "answer": "(B) Implementar retries automáticos com backoff exponencial ao capturar esse tipo de exceção.",
+    "description": "A exceção ProvisionedThroughputExceededException indica que a aplicação excedeu a taxa permitida de leitura ou escrita. A abordagem recomendada é implementar retries com exponential backoff e jitter, permitindo que o sistema recupere de falhas temporárias sem sobrecarregar o serviço."
+  },
+  {
+    "id": 47,
+    "question": "Um desenvolvedor precisa consultar um banco de dados relacional por meio de uma função do AWS Lambda. A função do Lambda será chamada com frequência e o desenvolvedor precisa evitar a latência introduzida pela conexão JDBC inicial com o banco de dados em chamadas subsequentes da função. Como o desenvolvedor pode garantir que a conexão com o banco de dados seja reutilizada pelo Lambda?",
+    "options": [
+      "(A) Armazenar a string de conexão do banco de dados no código da função do Lambda. Garantir que o manipulador de função inicialize a conexão do banco de dados dentro do método do manipulador.",
+      "(B) Inicializar a conexão do banco de dados fora do código da função do Lambda como uma variável de ambiente da função do Lambda.",
+      "(C) Inicializar a conexão do banco de dados dentro do código da função do Lambda, mas fora do método do manipulador.",
+      "(D) Armazenar a string de conexão do banco de dados no AWS Systems Manager Parameter Store. Garantir que o manipulador de função do Lambda inicialize a conexão do banco de dados dentro do método do manipulador."
+    ],
+    "answer": "(D) Inicializar a conexão do banco de dados dentro do código da função do Lambda, mas fora do método do manipulador.",
+    "description": "Sem feedback"
+  },
+  {
+    "id": 48,
+    "question": "Um aplicativo consiste em uma API REST do Amazon API Gateway que invoca uma função do AWS Lambda. A função do Lambda frequentemente falha devido a uma chamada a uma API de terceiros. O aplicativo precisa ter a capacidade de tentar novamente a execução por um período maior do que o tempo limite da função do Lambda. Qual solução atende a esses requisitos?",
+    "options": [
+      "(A) Criar uma segunda função do Lambda para lidar com exceções, com lógica de backoff exponencial, e configurar o API Gateway para invocar essa nova função.",
+      "(B) Criar uma extensão externa do Lambda que lide com exceções e remova a chamada da API de terceiros da função original.",
+      "(C) Criar uma máquina de estado do AWS Step Functions com um estado de tarefa que chame a função original com parâmetros de retry (BackoffRate e maxAttempts) e configurar o API Gateway para iniciar a máquina de estado.",
+      "(D) Criar uma camada do Lambda contendo uma biblioteca de tratamento de exceções, removendo a chamada da API de terceiros da função original e fazendo com que a função invoque o código da camada."
+    ],
+    "answer": "(C) Criar uma máquina de estado do AWS Step Functions com um estado de tarefa que chame a função original com parâmetros de retry (BackoffRate e maxAttempts) e configurar o API Gateway para iniciar a máquina de estado.",
+    "description": "O AWS Step Functions permite configurar lógica de retry, incluindo backoff exponencial e número máximo de tentativas, garantindo reexecuções seguras sem ultrapassar o tempo limite do Lambda."
+  },
+  {
+    "id": 49,
+    "question": "Um site permite que usuários façam upload de fotos para o Amazon S3. Um evento do S3 invoca uma função do AWS Lambda que utiliza a operação DetectLabels do Amazon Rekognition para identificar objetos na foto. O site precisa armazenar esses dados em um índice de pesquisa para que os usuários encontrem fotos associadas a um rótulo. Qual solução atende a esses requisitos?",
+    "options": [
+      "(A) Criar um índice secundário global (GSI) com o nome de usuário como chave de partição e o rótulo como chave de classificação e consultar esse índice, tudo em uma tabela do DynamoDB.",
+      "(B) Armazenar valores de nome de usuário e rótulo como metadados (x-amz-meta-) dos objetos do S3 e pesquisar esses metadados.",
+      "(C) Inserir um item para cada combinação de chave, rótulo e usuário em uma tabela do DynamoDB",
+      "(D) Armazenar valores de nome de usuário e rótulo como tags de objeto do S3 e pesquisar via API describe-tags."
+    ],
+    "answer": "(A) Criar um índice secundário global (GSI) com o nome de usuário como chave de partição e o rótulo como chave de classificação e consultar esse índice, tudo em uma tabela do DynamoDB.",
+    "description": "Criar um índice secundário global no DynamoDB com nome de usuário como chave de partição e rótulo como chave de classificação permite consultas eficientes para recuperar rapidamente os itens correspondentes."
+  },
+  {
+    "id": 50,
+    "question": "Uma empresa executa um aplicativo de fórum de discussão em um cluster do Amazon ECS. O aplicativo armazena dados em uma tabela do Amazon DynamoDB, configurada com capacidade provisionada e auto scaling. Durante períodos de pico de tráfego, os usuários relatam erros intermitentes e, ao inspecionar os logs, a equipe observa o seguinte erro: ProvisionedThroughputExceededException: 400 Bad Request. Qual ação resolverá o problema que está causando esse erro?",
+    "options": [
+      "(A) Configurar o cluster do ECS para executar mais tarefas.",
+      "(B) Atualizar a tabela do DynamoDB para usar o modo sob demanda.",
+      "(C) Configurar o cluster do ECS com o auto scaling de serviços.",
+      "(D) Implementar tabelas globais do DynamoDB."
+    ],
+    "answer": "(B) Atualizar a tabela do DynamoDB para usar o modo sob demanda.",
+    "description": "Sem feedback"
+  },
+  {
+    "id": 51,
+    "question": "Um desenvolvedor implanta um aplicativo personalizado em três instâncias do Amazon EC2 que processa mensagens de uma fila padrão do Amazon SQS. Durante um teste de carga, observa-se que o aplicativo processa muitas mensagens mais de uma vez. Como o desenvolvedor pode garantir que o aplicativo processe cada mensagem exatamente uma vez?",
+    "options": [
+      "(A) Aumentar o valor de DelaySeconds na fila atual do SQS.",
+      "(B) Modificar a fila padrão do SQS para uma fila FIFO do SQS.",
+      "(C) Processar as mensagens em uma única instância do EC2 em vez de três.",
+      "(D) Criar uma fila FIFO do SQS e apontar o aplicativo para a nova fila."
+    ],
+    "answer": "(D) Atualizar a tabela do DynamoDB para usar o modo sob demanda.",
+    "description": "Sem feedback"
+  },
+  {
+    "id": 52,
+    "question": "Uma empresa deseja automatizar o processo de build, testes e deploy de uma aplicação serverless, incluindo funções do AWS Lambda e recursos do Amazon API Gateway. Qual serviço pode orquestrar esse pipeline de ponta a ponta?",
+    "options": [
+      "(A) Amazon S3, para armazenar todos os artefatos de build.",
+      "(B) AWS Step Functions, definindo máquinas de estado para cada fase do build.",
+      "(C) AWS CodePipeline, integrando CodeBuild e CodeDeploy para automatizar o fluxo.",
+      "(D) Amazon EC2, executando scripts manuais de build e deploy."
+    ],
+    "answer": "(C) AWS CodePipeline, integrando CodeBuild e CodeDeploy para automatizar o fluxo.",
+    "description": "O AWS CodePipeline integra serviços como CodeBuild e CodeDeploy, automatizando todo o ciclo de build, teste e deploy de aplicações serverless ou tradicionais."
+  },
+  {
+    "id": 53,
+    "question": "Uma empresa de comércio eletrônico armazena dados de inventário em uma tabela do Amazon DynamoDB. Durante atualizações de preços, itens podem ser atualizados simultaneamente, gerando preços inconsistentes. Qual recurso do DynamoDB deve ser usado para reforçar a consistência no processo de atualização de preços?",
+    "options": [
+      "(A) Gravações condicionais.",
+      "(B) Contadores atômicos.",
+      "(C) TTL.",
+      "(D) Operações em lote."
+    ],
+    "answer": "(A) Gravações condicionais.",
+    "description": "Sem feedback"
+  },
+  {
+    "id": 54,
+    "question": "Uma empresa tem um aplicativo que deve usar o controle de acesso baseado em atributos do pool de identidades do Amazon Cognito para restringir o acesso dos usuários aos objetos do Amazon S3 por departamento. Ela usa um grupo de usuários do Amazon Cognito para autenticar todos os usuários, adiciona um atributo 'departamento' para cada usuário e marca cada objeto do S3 com uma tag de 'departamento' correspondente. Como a empresa pode configurar o Amazon Cognito para atender a esses requisitos?",
+    "options": [
+      "(A) Definir diferentes perfis do IAM no grupo de usuários para cada departamento. Selecionar a função usando a expressão do seletor de função '$context.authorizer.claims.sub.department'.",
+      "(B) Definir um perfil do IAM no pool de identidades. Associar o perfil a uma política que conceda permissões do S3 a qualquer recurso com a condição 's3:ExistingObjectTag/department': '${aws:PrincipalTag/department}'.",
+      "(C) Definir um perfil do IAM no grupo de usuários. Associar o perfil a uma política que conceda permissões do S3 a qualquer recurso com a condição 's3:x-amz-metadata-directive': '${aws:PrincipalTag/department}'.",
+      "(D) Definir diferentes perfis do IAM no pool de identidades de cada departamento. Selecionar a função usando a expressão do seletor de função 'context.authorizer.claims.sub.department'."
+    ],
+    "answer": "(B) Definir um perfil do IAM no pool de identidades. Associar o perfil a uma política que conceda permissões do S3 a qualquer recurso com a condição 's3:ExistingObjectTag/department': '${aws:PrincipalTag/department}'.",
+    "description": "Definir um perfil do IAM no pool de identidades e associá-lo a uma política que compare a tag do objeto (s3:ExistingObjectTag/department) com o atributo do usuário (aws:PrincipalTag/department). Isso garante que o acesso seja concedido somente se os valores coincidirem."
+  },
+  {
+    "id": 54,
+    "question": "Uma equipe de desenvolvimento implantou uma aplicação Python no AWS Elastic Beanstalk. Após realizar melhorias no código, eles desejam implantar uma nova versão da aplicação com o mínimo de impacto possível nos usuários finais. O processo deve permitir, se necessário, um rollback rápido para a versão anterior.",
+    "options": [
+      "(A) Usar a funcionalidade de upload e deploy de nova versão do Elastic Beanstalk, e configurar a política de implantação para realizar atualizações por lotes.",
+      "(B) Atualizar diretamente os arquivos nas instâncias EC2 que compõem o ambiente do Beanstalk.",
+      "(C) Excluir o ambiente atual do Elastic Beanstalk e criar um novo ambiente com o código atualizado.",
+      "(D) Criar uma nova aplicação Beanstalk separada, apontando para a nova versão, e desativar manualmente a antiga após o deploy."
+    ],
+    "answer": "(D) Atualizar a tabela do DynamoDB para usar o modo sob demanda.",
+    "description": "Sem feedback"
   }
 ]
