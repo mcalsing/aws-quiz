@@ -169,7 +169,7 @@ const Quiz = () => {
         <div className="flex justify-center gap-1 pt-3  text-xl">
           <p className="text-slate-700">Tempo restante:</p>
           <h1 className="text-slate-500"  id="count">
-            {formatTime(timer)} - {answeredQuestions}/{AMOUNTQUESTIONS}
+            {formatTime(timer)} - {answeredQuestions + 1}/{AMOUNTQUESTIONS}
           </h1>
         </div>
       )}
@@ -187,8 +187,8 @@ const Quiz = () => {
                 <div className="grid grid-cols-1 gap-4 mt-5">
                   {questions[currentQuestionIndex].options.map((option, index) => (
                     <div
-                      className={`rounded p-5 cursor-pointer hover:bg-sky-800 hover:text-slate-300 
-                        ${answers[questions[currentQuestionIndex].id] === option ? "bg-sky-800 text-slate-100" : ""}`}
+                      className={`rounded p-5 cursor-pointer hover:bg-sky-700 hover:text-slate-200 
+                        ${answers[questions[currentQuestionIndex].id] === option ? "bg-sky-800 text-slate-200" : ""}`}
                       key={option}
                       onClick={() => handleAnswerSelect(questions[currentQuestionIndex].id, option)}
                     >

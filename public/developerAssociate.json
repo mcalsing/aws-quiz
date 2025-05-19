@@ -608,7 +608,7 @@
       "(C) Processar as mensagens em uma única instância do EC2 em vez de três.",
       "(D) Criar uma fila FIFO do SQS e apontar o aplicativo para a nova fila."
     ],
-    "answer": "(D) Atualizar a tabela do DynamoDB para usar o modo sob demanda.",
+    "answer": "(D) Criar uma fila FIFO do SQS e apontar o aplicativo para a nova fila.",
     "description": "Sem feedback"
   },
   {
@@ -656,7 +656,7 @@
       "(C) Excluir o ambiente atual do Elastic Beanstalk e criar um novo ambiente com o código atualizado.",
       "(D) Criar uma nova aplicação Beanstalk separada, apontando para a nova versão, e desativar manualmente a antiga após o deploy."
     ],
-    "answer": "(D) Atualizar a tabela do DynamoDB para usar o modo sob demanda.",
+    "answer": "(A) Usar a funcionalidade de upload e deploy de nova versão do Elastic Beanstalk, e configurar a política de implantação para realizar atualizações por lotes.",
     "description": "Sem feedback"
   }
 ]
