@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const TIMEFORTEST = 35*60;
 const AMOUNTQUESTIONS = 25; 
@@ -40,26 +41,40 @@ const Quiz = () => {
   const location = useLocation();
   let whichExam = location.state;
 
-  const getCloudPractitionerQuestions = () => {
-    console.log("cloud")
-    fetch("/cloudPractitioner.json")
-      .then((response) => response.json())
-      .then((data) => {
-         data.sort(() => Math.random() - 0.5);
-        setQuestions(data);
-      })
-      .catch((error) => console.error("Error fetching quiz data:", error));
-  }
+  const getCloudPractitionerQuestions = async() => {
+    try {
+      const { data } = await axios.get("/cloudPractitioner.json")
 
-  const getDeveloperAssociateQuestions = () => {
-    console.log("developer")
-    fetch("/developerAssociate.json")
-      .then((response) => response.json())
-      .then((data) => {
-          data.sort(() => Math.random() - 0.5);
-        setQuestions(data);
-      })
-      .catch((error) => console.error("Error fetching quiz data:", error));
+      // Embaralha as alternativas de cada questão
+      data.forEach((question) => {
+        question.options.sort(() => Math.random() - 0.5);
+      });
+
+      // Embaralha a ordem das perguntas
+      data.sort(() => Math.random() - 0.5);
+      setQuestions(data);
+      
+    } catch (error) {
+      console.error("Error fetching quiz data:", error);
+    }
+  }
+  
+  const getDeveloperAssociateQuestions = async () => {
+    try {
+      const { data } = await axios.get("/developerAssociate.json")
+
+      // Embaralha as alternativas de cada questão
+      data.forEach((question) => {
+        question.options.sort(() => Math.random() - 0.5);
+      });
+
+      // Embaralha a ordem das perguntas
+      data.sort(() => Math.random() - 0.5);
+      setQuestions(data);
+
+    } catch (error) {
+      console.error("Error fetching quiz data:", error);
+    }
   }
 
   useEffect(() => {
@@ -227,7 +242,7 @@ const Quiz = () => {
 
                 <div>
                   <p className="font-bold">Feedback:</p>
-                  <p className="text-justify">{questions[currentQuestionIndex].description}</p>
+                  <p className="text-justify mb-20">{questions[currentQuestionIndex].description}</p>
                 </div>
               </section>
             )}
